@@ -1,6 +1,6 @@
 from pico2d import *
 
-open_canvas(800,600)
+open_canvas(1200,700)
 character = load_image('animation_sheet.png')
 ground = load_image('TR_GROUND.png')
 
@@ -35,8 +35,8 @@ def handle_events():
                 dir_y += 1
 
 running = True
-x = 800 // 2
-y = 400 // 2
+x = 1200 // 2
+y = 700 // 2
 frame = 0
 facing_right = True
 dir_x = 0
@@ -46,24 +46,25 @@ row = 0
 while running:
     clear_canvas()
     ground.draw(400,300)
+    c_size = 50
     if dir_x > 0:  # 오른쪽 이동
         row = 560
-        character.clip_draw(frame * 210, row, 210, 280, x, y, 100, 100)
+        character.clip_draw(frame * 210, row, 210, 280, x, y, c_size, c_size)
     elif dir_x < 0:  # 왼쪽 이동
         row = 280
-        character.clip_draw(frame * 210, row, 210, 280, x, y, 100, 100)
+        character.clip_draw(frame * 210, row, 210, 280, x, y, c_size, c_size)
     elif dir_y > 0:  # 위쪽 이동
         row = 0
-        character.clip_draw(frame * 210, row, 210, 280, x, y, 100, 100)
+        character.clip_draw(frame * 210, row, 210, 280, x, y, c_size, c_size)
     elif dir_y < 0:  # 아래쪽 이동
         row = 840
-        character.clip_draw(frame * 210, row, 210, 280, x, y, 100, 100)
+        character.clip_draw(frame * 210, row, 210, 280, x, y, c_size, c_size)
 
     if dir_x != 0 or dir_y != 0:
-        character.clip_draw(frame * 210, row, 210, 280, x, y, 100, 100)
+        character.clip_draw(frame * 210, row, 210, 280, x, y, c_size, c_size)
         frame = (frame + 1) % 4
     else:
-        character.clip_draw(0, row, 210, 280, x, y, 100, 100)
+        character.clip_draw(0, row, 210, 280, x, y, c_size, c_size)
 
     update_canvas()
     handle_events()
