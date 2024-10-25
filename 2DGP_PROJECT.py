@@ -67,7 +67,6 @@ while running:
 
     update_canvas()
     handle_events()
-    #frame = (frame + 1) % 4
     x += dir_x * 10
     y += dir_y * 10
     delay(0.05)
