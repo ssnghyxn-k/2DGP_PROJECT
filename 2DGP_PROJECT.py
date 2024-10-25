@@ -2,6 +2,7 @@ from pico2d import *
 
 open_canvas(800,600)
 character = load_image('animation_sheet.png')
+ground = load_image('TR_GROUND.png')
 
 def handle_events():
     global running
@@ -44,6 +45,7 @@ row = 0
 
 while running:
     clear_canvas()
+    ground.draw(400,300)
     if dir_x > 0:  # 오른쪽 이동
         row = 560
         character.clip_draw(frame * 210, row, 210, 280, x, y, 100, 100)
@@ -56,14 +58,18 @@ while running:
     elif dir_y < 0:  # 아래쪽 이동
         row = 840
         character.clip_draw(frame * 210, row, 210, 280, x, y, 100, 100)
-    else:  # 정지 상태일 때 마지막 방향 유지
+
+    if dir_x != 0 or dir_y != 0:
         character.clip_draw(frame * 210, row, 210, 280, x, y, 100, 100)
+        frame = (frame + 1) % 4
+    else:
+        character.clip_draw(0, row, 210, 280, x, y, 100, 100)
 
     update_canvas()
     handle_events()
-    frame = (frame + 1) % 4
-    x += dir_x * 5
-    y += dir_y * 5
+    #frame = (frame + 1) % 4
+    x += dir_x * 10
+    y += dir_y * 10
     delay(0.05)
 
 close_canvas()
