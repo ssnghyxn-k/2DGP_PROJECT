@@ -26,10 +26,10 @@ def init():
     global tu_ground
 
     boy = Boy()
-    game_world.add_object(boy, 0)
+    game_world.add_object(boy, 1)
 
-    # tr_ground = TR_GROUND()
-    # game_world.add_object(tr_ground, 1)
+    tr_ground = TR_GROUND()
+    game_world.add_object(tr_ground, 0)
 
     # map_2 = MAP_2()
     # game_world.add_object(map_2, 1)

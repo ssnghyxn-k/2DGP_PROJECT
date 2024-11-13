@@ -63,13 +63,10 @@ class StateMachine:
 
     def draw(self):
         self.cur_state.draw(self.obj)
-        pass
 
     def add_event(self, e):
         print(f'    DEBUG: add event {e}')
         self.event_q.append(e)
-        pass
 
     def set_transitions(self, transitions):
         self.transitions = transitions
-        pass

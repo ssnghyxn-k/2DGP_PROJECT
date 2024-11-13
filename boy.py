@@ -52,19 +52,30 @@ class Run:
     @staticmethod
     def enter(boy,e):
         boy.frame = 0
-        if left_down(e) or right_up(e):
+        if left_down(e):
             boy.dir_x = -1
             boy.dir_y = 0
-        elif right_down(e) or left_up(e):
+        elif right_down(e):
             boy.dir_x = 1
             boy.dir_y = 0
-        elif up_down(e) or down_up(e):
+        elif up_down(e):
             boy.dir_x = 0
             boy.dir_y = 1
-        elif down_down(e) or up_up(e):
+        elif down_down(e):
             boy.dir_x = 0
             boy.dir_y = -1
-
+        elif left_up(e):
+            boy.dir_x = 1
+            boy.dir_y = 0
+        elif right_up(e):
+            boy.dir_x = -1
+            boy.dir_y = 0
+        elif up_up(e):
+            boy.dir_x = 0
+            boy.dir_y = -1
+        elif down_up(e):
+            boy.dir_x = 0
+            boy.dir_y = 1
 
     @staticmethod
     def exit(boy,e):
