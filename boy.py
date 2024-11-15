@@ -1,4 +1,4 @@
-from pico2d import load_image
+from pico2d import load_image, load_font
 
 from state_machine import left_up, start_event
 from state_machine import right_down
@@ -114,6 +114,8 @@ class Boy:
         self.dir_x = 0
         self.dir_y = 0
         self.action = 3
+        self.condition = 100
+        self.font = load_font('ENCR10B.TTF', 30)
         self.image = load_image('animation_sheet.png')
         self.state_machine = StateMachine(self)  #Boy's state machine
         self.state_machine.start(Idle) #초기 상태가 Idle
@@ -137,3 +139,4 @@ class Boy:
 
     def draw(self):
         self.state_machine.cur_state.draw(self)
+        self.font.draw(950, 650, f'Condition:{self.condition:02d}', (255, 255, 0))
