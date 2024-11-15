@@ -46,20 +46,36 @@ def finish():
 def update_scene():
     global current_scene, previous_scene
 
-    if boy.x > 1200:
-        current_scene = 'map_3'
-    elif boy.x < 0:
-        current_scene = 'map_2'
-    elif boy.y > 700:
-        current_scene = 'map_4'
-    elif boy.y < 0:
-        current_scene = 'map_5'
+    if current_scene == 'TR_GROUND.png':
+        if boy.x < 0:
+            current_scene = 'map_2'
+        elif boy.x > 1200:
+            current_scene = 'map_3'
+        elif boy.y > 700:
+            current_scene = 'map_4'
+        elif boy.y < 0:
+            current_scene = 'map_5'
+
+    elif current_scene == 'map_2':
+         if boy.x > 1200:  # Right side of map_2, move to TR_GROUND
+            current_scene = 'TR_GROUND.png'
+
+    elif current_scene == 'map_3':
+         if boy.x < 0:  # Left side of map_3, move to TR_GROUND
+            current_scene = 'TR_GROUND.png'
+
+    elif current_scene == 'map_4':
+        if boy.y < 0:  # Bottom side of map_4, move to TR_GROUND
+            current_scene = 'TR_GROUND.png'
+
+    elif current_scene == 'map_5':
+        if boy.y > 700:  # Top side of map_5, move to TR_GROUND
+            current_scene = 'TR_GROUND.png'
 
 
     if previous_scene != current_scene:
-        #print(f"DEBUG: Switching scene from {previous_scene} to {current_scene}")
         game_world.clear()
-        if current_scene == 'TR_GROUND':
+        if current_scene == 'TR_GROUND.png':
             tr_ground = TR_GROUND()
             game_world.add_object(tr_ground, 0)
             boy.x = 600
@@ -77,6 +93,7 @@ def update_scene():
             boy.x = 600
             boy.y = 350
 
+
         elif current_scene == 'map_4':
             map_4 = MAP_4()
             game_world.add_object(map_4, 0)
@@ -89,8 +106,8 @@ def update_scene():
             boy.x = 600
             boy.y = 350
 
+
         game_world.add_object(boy, 1)
-        boy.y = 700 // 2
         previous_scene = current_scene
 
 
