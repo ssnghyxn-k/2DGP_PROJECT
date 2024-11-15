@@ -24,6 +24,10 @@ def handle_events():
 def init():
     global boy
     global tu_ground
+    global current_scene, previous_scene
+
+    current_scene = 'TR_GROUND.png'
+    previous_scene = current_scene
 
     boy = Boy()
     game_world.add_object(boy, 1)
@@ -31,21 +35,47 @@ def init():
     tr_ground = TR_GROUND()
     game_world.add_object(tr_ground, 0)
 
-    # map_2 = MAP_2()
-    # game_world.add_object(map_2, 1)
-    #
-    # map_3 = MAP_3()
-    # game_world.add_object(map_3, 1)
-
-
 
 def finish():
     game_world.clear()
-    pass
+
+
+def update_scene():
+    global current_scene, previous_scene
+
+    if boy.x > 1200:
+        current_scene = 'map_3'
+    elif boy.x < 0:
+        current_scene = 'map_2'
+    else:
+        current_scene = 'TR_GROUND'
+
+    if previous_scene != current_scene:
+        #print(f"DEBUG: Switching scene from {previous_scene} to {current_scene}")
+        game_world.clear()
+        if current_scene == 'TR_GROUND':
+            tr_ground = TR_GROUND()
+            game_world.add_object(tr_ground, 0)
+            tr_ground.draw()
+
+        elif current_scene == 'map_2':
+            map_2 = MAP_2()
+            game_world.add_object(map_2, 0)
+            map_2.draw()
+
+        elif current_scene == 'map_3':
+            map_3 = MAP_3()
+            game_world.add_object(map_3, 0)
+            map_3.draw()
+
+        game_world.add_object(boy, 1)
+        boy.x, boy.y = 1200 // 2, 700 // 2
+        previous_scene = current_scene
 
 
 def update():
     game_world.update()
+    update_scene()
     game_world.handle_collisions()
 
 
