@@ -57,7 +57,7 @@ def update_scene():
             current_scene = 'map_5'
 
     elif current_scene == 'map_2':
-         if boy.x > 1200:  # Right side of map_2, move to TR_GROUND
+         if boy.x > 1200:
             current_scene = 'TR_GROUND'
          elif boy.x < 0:
              boy.x = 0
@@ -70,7 +70,7 @@ def update_scene():
              boy.dir_y = 0
 
     elif current_scene == 'map_3':
-         if boy.x < 0:  # Left side of map_3, move to TR_GROUND
+         if boy.x < 0:
             current_scene = 'TR_GROUND'
          elif boy.x > 1200:
              boy.x = 1200
@@ -83,7 +83,7 @@ def update_scene():
              boy.dir_y = 0
 
     elif current_scene == 'map_4':
-        if boy.y < 0:  # Bottom side of map_4, move to TR_GROUND
+        if boy.y < 0:
             current_scene = 'TR_GROUND'
         elif boy.y > 700:
             boy.y = 700
@@ -96,7 +96,7 @@ def update_scene():
             boy.dir_x = 0
 
     elif current_scene == 'map_5':
-        if boy.y > 700:  # Top side of map_5, move to TR_GROUND
+        if boy.y > 700:
             current_scene = 'TR_GROUND'
         elif boy.y < 0:
             boy.y = 0
