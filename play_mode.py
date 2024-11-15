@@ -47,7 +47,7 @@ def update_scene():
         current_scene = 'map_3'
     elif boy.x < 0:
         current_scene = 'map_2'
-    
+
     if previous_scene != current_scene:
         #print(f"DEBUG: Switching scene from {previous_scene} to {current_scene}")
         game_world.clear()
