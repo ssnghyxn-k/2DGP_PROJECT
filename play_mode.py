@@ -8,6 +8,7 @@ from boy import Boy
 from tr_ground import TR_GROUND
 from map_2 import MAP_2
 from map_3 import MAP_3
+from map_4 import MAP_4
 
 # boy = None
 
@@ -47,6 +48,9 @@ def update_scene():
         current_scene = 'map_3'
     elif boy.x < 0:
         current_scene = 'map_2'
+    elif boy.y > 700:
+        current_scene = 'map_4'
+
 
     if previous_scene != current_scene:
         #print(f"DEBUG: Switching scene from {previous_scene} to {current_scene}")
@@ -55,16 +59,25 @@ def update_scene():
             tr_ground = TR_GROUND()
             game_world.add_object(tr_ground, 0)
             boy.x = 600
+            boy.y = 350
 
         elif current_scene == 'map_2':
             map_2 = MAP_2()
             game_world.add_object(map_2, 0)
-            boy.x = 1199
+            boy.x = 600
+            boy.y = 350
 
         elif current_scene == 'map_3':
             map_3 = MAP_3()
             game_world.add_object(map_3, 0)
-            boy.x = 1
+            boy.x = 600
+            boy.y = 350
+
+        elif current_scene == 'map_4':
+            map_4 = MAP_4()
+            game_world.add_object(map_4, 0)
+            boy.x = 600
+            boy.y = 350
 
         game_world.add_object(boy, 1)
         boy.y = 700 // 2
