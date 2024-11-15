@@ -9,6 +9,8 @@ from tr_ground import TR_GROUND
 from map_2 import MAP_2
 from map_3 import MAP_3
 from map_4 import MAP_4
+from map_5 import MAP_5
+
 
 # boy = None
 
@@ -50,6 +52,8 @@ def update_scene():
         current_scene = 'map_2'
     elif boy.y > 700:
         current_scene = 'map_4'
+    elif boy.y < 0:
+        current_scene = 'map_5'
 
 
     if previous_scene != current_scene:
@@ -76,6 +80,12 @@ def update_scene():
         elif current_scene == 'map_4':
             map_4 = MAP_4()
             game_world.add_object(map_4, 0)
+            boy.x = 600
+            boy.y = 350
+
+        elif current_scene == 'map_5':
+            map_5 = MAP_5()
+            game_world.add_object(map_5, 0)
             boy.x = 600
             boy.y = 350
 
