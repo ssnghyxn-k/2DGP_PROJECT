@@ -47,29 +47,27 @@ def update_scene():
         current_scene = 'map_3'
     elif boy.x < 0:
         current_scene = 'map_2'
-    else:
-        current_scene = 'TR_GROUND'
-
+    
     if previous_scene != current_scene:
         #print(f"DEBUG: Switching scene from {previous_scene} to {current_scene}")
         game_world.clear()
         if current_scene == 'TR_GROUND':
             tr_ground = TR_GROUND()
             game_world.add_object(tr_ground, 0)
-            tr_ground.draw()
+            boy.x = 600
 
         elif current_scene == 'map_2':
             map_2 = MAP_2()
             game_world.add_object(map_2, 0)
-            map_2.draw()
+            boy.x = 1199
 
         elif current_scene == 'map_3':
             map_3 = MAP_3()
             game_world.add_object(map_3, 0)
-            map_3.draw()
+            boy.x = 1
 
         game_world.add_object(boy, 1)
-        boy.x, boy.y = 1200 // 2, 700 // 2
+        boy.y = 700 // 2
         previous_scene = current_scene
 
 
