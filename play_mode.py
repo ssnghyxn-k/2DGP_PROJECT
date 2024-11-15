@@ -29,7 +29,7 @@ def init():
     global tu_ground
     global current_scene, previous_scene
 
-    current_scene = 'TR_GROUND.png'
+    current_scene = 'TR_GROUND'
     previous_scene = current_scene
 
     boy = Boy()
@@ -46,7 +46,7 @@ def finish():
 def update_scene():
     global current_scene, previous_scene
 
-    if current_scene == 'TR_GROUND.png':
+    if current_scene == 'TR_GROUND':
         if boy.x < 0:
             current_scene = 'map_2'
         elif boy.x > 1200:
@@ -58,24 +58,24 @@ def update_scene():
 
     elif current_scene == 'map_2':
          if boy.x > 1200:  # Right side of map_2, move to TR_GROUND
-            current_scene = 'TR_GROUND.png'
+            current_scene = 'TR_GROUND'
 
     elif current_scene == 'map_3':
          if boy.x < 0:  # Left side of map_3, move to TR_GROUND
-            current_scene = 'TR_GROUND.png'
+            current_scene = 'TR_GROUND'
 
     elif current_scene == 'map_4':
         if boy.y < 0:  # Bottom side of map_4, move to TR_GROUND
-            current_scene = 'TR_GROUND.png'
+            current_scene = 'TR_GROUND'
 
     elif current_scene == 'map_5':
         if boy.y > 700:  # Top side of map_5, move to TR_GROUND
-            current_scene = 'TR_GROUND.png'
+            current_scene = 'TR_GROUND'
 
 
     if previous_scene != current_scene:
         game_world.clear()
-        if current_scene == 'TR_GROUND.png':
+        if current_scene == 'TR_GROUND':
             tr_ground = TR_GROUND()
             game_world.add_object(tr_ground, 0)
             boy.x = 600
