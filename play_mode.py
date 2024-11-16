@@ -19,6 +19,7 @@ from player_3 import PLAYER_3
 from manager import MANAGER
 from cone import CONE
 from fitness_ball import FITNESS_BALL
+from trainer_1 import TRAINER_1
 
 # boy = None
 
@@ -157,9 +158,11 @@ def update_scene():
             map_4 = MAP_4()
             cone = CONE()
             fitness_ball = FITNESS_BALL()
+            trainer_1 = TRAINER_1()
             game_world.add_object(map_4, 0)
             game_world.add_object(cone, 1)
             game_world.add_object(fitness_ball, 1)
+            game_world.add_object(trainer_1, 1)
             boy.x = 600
             boy.y = 350
 
