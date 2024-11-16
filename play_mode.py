@@ -13,7 +13,10 @@ from map_5 import MAP_5
 from bed import BED
 from refrig import REFRIG
 from goal_post import GOAL_POST
-
+from player_1 import PLAYER_1
+from player_2 import PLAYER_2
+from player_3 import PLAYER_3
+from manager import MANAGER
 
 # boy = None
 
@@ -133,8 +136,18 @@ def update_scene():
         elif current_scene == 'map_3':
             map_3 = MAP_3()
             goal_post = GOAL_POST()
+            player_1 = PLAYER_1()
+            player_2 = PLAYER_2()
+            player_3 = PLAYER_3()
+            manager = MANAGER()
+
             game_world.add_object(map_3, 0)
             game_world.add_object(goal_post, 1)
+            game_world.add_object(player_1, 1)
+            game_world.add_object(player_2, 1)
+            game_world.add_object(player_3, 1)
+            game_world.add_object(manager, 1)
+
             boy.x = 600
             boy.y = 350
 
