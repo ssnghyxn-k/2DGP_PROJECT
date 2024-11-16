@@ -115,6 +115,7 @@ class Boy:
         self.dir_y = 0
         self.action = 3
         self.condition = 100
+        self.hunger = 100
         self.font = load_font('ENCR10B.TTF', 20)
         self.image = load_image('animation_sheet.png')
         self.state_machine = StateMachine(self)  #Boy's state machine
@@ -140,3 +141,4 @@ class Boy:
     def draw(self):
         self.state_machine.cur_state.draw(self)
         self.font.draw(1000, 680, f'Condition:{self.condition:02d}', (255, 255, 0))
+        self.font.draw(1000, 650, f'Hunger:{self.hunger:02d}', (255, 0, 255))
