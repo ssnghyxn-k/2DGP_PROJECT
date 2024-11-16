@@ -10,6 +10,7 @@ from map_2 import MAP_2
 from map_3 import MAP_3
 from map_4 import MAP_4
 from map_5 import MAP_5
+from bed import BED
 
 
 # boy = None
@@ -119,7 +120,9 @@ def update_scene():
 
         elif current_scene == 'map_2':
             map_2 = MAP_2()
+            bed = BED()
             game_world.add_object(map_2, 0)
+            game_world.add_object(bed, 1)
             boy.x = 600
             boy.y = 350
 

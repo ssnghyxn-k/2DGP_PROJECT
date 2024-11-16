@@ -115,7 +115,7 @@ class Boy:
         self.dir_y = 0
         self.action = 3
         self.condition = 100
-        self.font = load_font('ENCR10B.TTF', 30)
+        self.font = load_font('ENCR10B.TTF', 20)
         self.image = load_image('animation_sheet.png')
         self.state_machine = StateMachine(self)  #Boy's state machine
         self.state_machine.start(Idle) #초기 상태가 Idle
@@ -139,4 +139,4 @@ class Boy:
 
     def draw(self):
         self.state_machine.cur_state.draw(self)
-        self.font.draw(950, 650, f'Condition:{self.condition:02d}', (255, 255, 0))
+        self.font.draw(1000, 680, f'Condition:{self.condition:02d}', (255, 255, 0))
