@@ -1,12 +1,12 @@
 
 from pico2d import *
 
-class BED:
+class REFRIG:
     def __init__(self):
-        self.image = load_image('bed.png')
+        self.image = load_image('refrig.png')
 
     def update(self):
         pass
 
     def draw(self):
-        self.image.draw(950, 500)
+        self.image.draw(200, 500)
