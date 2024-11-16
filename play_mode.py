@@ -17,6 +17,7 @@ from player_1 import PLAYER_1
 from player_2 import PLAYER_2
 from player_3 import PLAYER_3
 from manager import MANAGER
+from cone import CONE
 
 # boy = None
 
@@ -140,7 +141,6 @@ def update_scene():
             player_2 = PLAYER_2()
             player_3 = PLAYER_3()
             manager = MANAGER()
-
             game_world.add_object(map_3, 0)
             game_world.add_object(goal_post, 1)
             game_world.add_object(player_1, 1)
@@ -154,7 +154,9 @@ def update_scene():
 
         elif current_scene == 'map_4':
             map_4 = MAP_4()
+            cone = CONE()
             game_world.add_object(map_4, 0)
+            game_world.add_object(cone, 1)
             boy.x = 600
             boy.y = 350
 
