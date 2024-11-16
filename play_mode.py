@@ -12,6 +12,7 @@ from map_4 import MAP_4
 from map_5 import MAP_5
 from bed import BED
 from refrig import REFRIG
+from goal_post import GOAL_POST
 
 
 # boy = None
@@ -131,7 +132,9 @@ def update_scene():
 
         elif current_scene == 'map_3':
             map_3 = MAP_3()
+            goal_post = GOAL_POST()
             game_world.add_object(map_3, 0)
+            game_world.add_object(goal_post, 1)
             boy.x = 600
             boy.y = 350
 

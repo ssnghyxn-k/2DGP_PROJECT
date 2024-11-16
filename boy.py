@@ -114,12 +114,13 @@ class Boy:
         self.dir_x = 0
         self.dir_y = 0
         self.action = 3
-        self.condition = 100
-        self.hunger = 100
+        self.condition = 100  # 컨디션
+        self.hunger = 100     # 허기짐
+        self.hearts = 5       # 호감도
         self.font = load_font('ENCR10B.TTF', 20)
         self.image = load_image('animation_sheet.png')
-        self.state_machine = StateMachine(self)  #Boy's state machine
-        self.state_machine.start(Idle) #초기 상태가 Idle
+        self.state_machine = StateMachine(self)
+        self.state_machine.start(Idle)
         self.state_machine.set_transitions(
             {
                 Idle: {right_down: Run, left_down: Run, up_down: Run, down_down: Run,
