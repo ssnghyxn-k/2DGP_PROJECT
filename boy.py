@@ -141,5 +141,7 @@ class Boy:
 
     def draw(self):
         self.state_machine.cur_state.draw(self)
-        self.font.draw(1000, 680, f'Condition:{self.condition:02d}', (255, 255, 0))
-        self.font.draw(1000, 650, f'Hunger:{self.hunger:02d}', (255, 0, 255))
+        self.font.draw(1000, 680, f'Condition:{self.condition:02d}', (0, 255, 255))
+        self.font.draw(1000, 650, f'Hunger:{self.hunger:02d}', (255, 255, 0))
+        self.font.draw(1000, 30, f'Hearts:{self.hearts:02d}', (255, 0, 255))
+
