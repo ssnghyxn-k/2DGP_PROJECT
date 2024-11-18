@@ -1,6 +1,7 @@
 from pico2d import load_image, load_font, draw_rectangle
 
 import game_world
+import time
 from state_machine import left_up, start_event
 from state_machine import right_down
 from state_machine import right_up
@@ -118,6 +119,7 @@ class Boy:
         self.condition = 100  # 컨디션
         self.hunger = 100     # 허기짐
         self.hearts = 5       # 호감도
+        self.last_collision_time = 0
         self.font = load_font('ENCR10B.TTF', 20)
         self.image = load_image('animation_sheet.png')
         self.state_machine = StateMachine(self)
@@ -151,10 +153,14 @@ class Boy:
         return self.x - 20, self.y - 20, self.x + 20, self.y + 20
 
     def handle_collision(self, group, other):
-        if group == 'boy:bed':
-            self.condition += 10
+        current_time = time.time()
+        if group == 'boy:bed'and (current_time - self.last_collision_time > 1800):  # 게임 시간 30분마다 취침 가능
+            self.condition += 50
             self.font.draw(1000, 680, f'Condition:{self.condition:02d}', (0, 255, 255))
+            self.last_collision_time = current_time
 
-        elif group == 'boy:refrig':
-            self.hunger += 10
+        elif group == 'boy:refrig' and (current_time - self.last_collision_time > 600):  # 게임 시간 10분 마다 식사 가능
+            self.hunger += 30
             self.font.draw(1000, 650, f'Hunger:{self.hunger:02d}', (255, 255, 0))
+            self.last_collision_time = current_time
+
