@@ -1,4 +1,4 @@
-from pico2d import load_image, load_font
+from pico2d import load_image, load_font, draw_rectangle
 
 from state_machine import left_up, start_event
 from state_machine import right_down
@@ -144,4 +144,7 @@ class Boy:
         self.font.draw(1000, 680, f'Condition:{self.condition:02d}', (0, 255, 255))
         self.font.draw(1000, 650, f'Hunger:{self.hunger:02d}', (255, 255, 0))
         self.font.draw(1000, 30, f'Hearts:{self.hearts:02d}', (255, 0, 255))
+        draw_rectangle(*self.get_bb())
 
+    def get_bb(self):
+        return self.x - 20, self.y - 20, self.x + 20, self.y + 20

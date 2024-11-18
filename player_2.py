@@ -9,3 +9,7 @@ class PLAYER_2:
 
     def draw(self):
         self.image.draw(900, 300)
+        draw_rectangle(*self.get_bb())
+
+    def get_bb(self):
+        return 880, 250, 920, 350

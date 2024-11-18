@@ -10,3 +10,7 @@ class CONE:
 
     def draw(self):
         self.image.draw(150, 80)
+        draw_rectangle(*self.get_bb())
+
+    def get_bb(self):
+        return 100, 40, 200, 120

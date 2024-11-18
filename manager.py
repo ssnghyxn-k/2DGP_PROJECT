@@ -10,3 +10,7 @@ class MANAGER:
 
     def draw(self):
         self.image.draw(900, 150)
+        draw_rectangle(*self.get_bb())
+
+    def get_bb(self):
+        return 870, 100, 930, 200

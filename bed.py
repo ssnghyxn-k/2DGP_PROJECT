@@ -10,3 +10,7 @@ class BED:
 
     def draw(self):
         self.image.draw(950, 500)
+        draw_rectangle(*self.get_bb())
+
+    def get_bb(self):
+        return 850, 400, 1050, 600
