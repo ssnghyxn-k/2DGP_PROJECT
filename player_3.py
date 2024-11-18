@@ -8,4 +8,4 @@ class PLAYER_3:
         pass
 
     def draw(self):
-        self.image.draw(400, 600)
+        self.image.draw(300, 300)

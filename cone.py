@@ -9,4 +9,4 @@ class CONE:
         pass
 
     def draw(self):
-        self.image.draw(1000, 100)
+        self.image.draw(150, 80)

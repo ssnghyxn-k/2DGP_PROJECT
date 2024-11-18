@@ -149,9 +149,8 @@ def update_scene():
             game_world.add_object(player_2, 1)
             game_world.add_object(player_3, 1)
             game_world.add_object(manager, 1)
-
             boy.x = 600
-            boy.y = 350
+            boy.y = 20
 
 
         elif current_scene == 'map_4':

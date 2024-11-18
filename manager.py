@@ -9,4 +9,4 @@ class MANAGER:
         pass
 
     def draw(self):
-        self.image.draw(800, 200)
+        self.image.draw(900, 150)

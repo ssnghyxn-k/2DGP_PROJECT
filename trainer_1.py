@@ -9,4 +9,4 @@ class TRAINER_1:
         pass
 
     def draw(self):
-        self.image.draw(200, 200)
+        self.image.draw(1000, 100)

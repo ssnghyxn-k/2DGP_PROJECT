@@ -9,4 +9,4 @@ class GOAL_POST:
         pass
 
     def draw(self):
-        self.image.draw(1100, 350)
+        self.image.draw(1020, 215)
