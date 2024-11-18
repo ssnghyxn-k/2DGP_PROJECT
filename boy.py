@@ -88,8 +88,8 @@ class Run:
 
     @staticmethod
     def do(boy):
-        boy.x += boy.dir_x * 5
-        boy.y += boy.dir_y * 5
+        boy.x += boy.dir_x * 10
+        boy.y += boy.dir_y * 10
         boy.frame = (boy.frame + 1) % 4
 
     @staticmethod
@@ -181,6 +181,9 @@ class Boy:
 
         elif group == 'boy:small_ball':
             self.ball_count += 1
+
+        elif group == 'boy:microphone':
+            pass
 
 
 

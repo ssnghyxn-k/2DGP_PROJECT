@@ -20,6 +20,7 @@ from manager import MANAGER
 from cone import CONE
 from fitness_ball import FITNESS_BALL
 from trainer_1 import TRAINER_1
+from microphone import MICROPHONE
 
 # boy = None
 
@@ -183,7 +184,9 @@ def update_scene():
 
         elif current_scene == 'map_5':
             map_5 = MAP_5()
+            microphone = MICROPHONE()
             game_world.add_object(map_5, 0)
+            game_world.add_object(microphone, 1)
             boy.x = 600
             boy.y = 350
 
