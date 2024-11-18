@@ -123,7 +123,7 @@ def update_scene():
         if current_scene == 'TR_GROUND':
             tr_ground = TR_GROUND()
             game_world.add_object(tr_ground, 0)
-            boy.x = 600
+            boy.x = 400
             boy.y = 350
 
         elif current_scene == 'map_2':
@@ -133,8 +133,8 @@ def update_scene():
             game_world.add_object(map_2, 0)
             game_world.add_object(bed, 1)
             game_world.add_object(refrig, 1)
-            boy.x = 600
-            boy.y = 350
+            boy.x = 1100
+            boy.y = 100
 
         elif current_scene == 'map_3':
             map_3 = MAP_3()
@@ -163,8 +163,8 @@ def update_scene():
             game_world.add_object(cone, 1)
             game_world.add_object(fitness_ball, 1)
             game_world.add_object(trainer_1, 1)
-            boy.x = 600
-            boy.y = 350
+            boy.x = 800
+            boy.y = 50
 
         elif current_scene == 'map_5':
             map_5 = MAP_5()
