@@ -1,5 +1,6 @@
 from pico2d import load_image, load_font, draw_rectangle
 
+import game_world
 from state_machine import left_up, start_event
 from state_machine import right_down
 from state_machine import right_up
@@ -148,3 +149,12 @@ class Boy:
 
     def get_bb(self):
         return self.x - 20, self.y - 20, self.x + 20, self.y + 20
+
+    def handle_collision(self, group, other):
+        if group == 'boy:bed':
+            self.condition += 10
+            self.font.draw(1000, 680, f'Condition:{self.condition:02d}', (0, 255, 255))
+
+        elif group == 'boy:refrig':
+            self.hunger += 10
+            self.font.draw(1000, 650, f'Hunger:{self.hunger:02d}', (255, 255, 0))

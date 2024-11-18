@@ -14,3 +14,7 @@ class BED:
 
     def get_bb(self):
         return 850, 400, 1050, 600
+
+    def handle_collision(self, group, other):
+        if group == 'boy:bed':
+            print('Collide bed')

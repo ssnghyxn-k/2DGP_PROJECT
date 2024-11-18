@@ -15,3 +15,6 @@ class REFRIG:
     def get_bb(self):
         return 100, 400, 300, 600
 
+    def handle_collision(self, group, other):
+        if group == 'boy:refrig':
+            print('Collide refrig')

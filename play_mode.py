@@ -34,7 +34,7 @@ def handle_events():
             boy.handle_event(event)
 
 def init():
-    global boy
+    global boy, bed, refrig
     global tu_ground
     global current_scene, previous_scene
 
@@ -46,6 +46,13 @@ def init():
 
     tr_ground = TR_GROUND()
     game_world.add_object(tr_ground, 0)
+
+    bed = BED()
+    game_world.add_collision_pair('boy:bed', boy, bed)
+
+    refrig = REFRIG()
+    game_world.add_collision_pair('boy:refrig', boy, refrig)
+
 
 
 def finish():
