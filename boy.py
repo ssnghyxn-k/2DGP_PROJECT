@@ -165,3 +165,13 @@ class Boy:
             self.font.draw(1000, 650, f'Hunger:{self.hunger:02d}', (255, 255, 0))
             self.last_collision_time = current_time
 
+        elif group == 'boy:fitness_ball':
+            pass
+
+        elif group == 'boy:cone':
+            pass
+
+        elif group == 'boy:trainer_1':
+            pass
+
+

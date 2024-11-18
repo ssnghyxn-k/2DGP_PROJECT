@@ -15,3 +15,7 @@ class FITNESS_BALL:
     def get_bb(self):
         return 70, 380, 150, 460
 
+    def handle_collision(self, group, other):
+        if group == 'boy:fitness_ball':
+            print('Collide fitness_ball')
+

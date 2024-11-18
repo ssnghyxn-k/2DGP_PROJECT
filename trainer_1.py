@@ -14,3 +14,7 @@ class TRAINER_1:
 
     def get_bb(self):
         return 920, 20, 1080, 180
+
+    def handle_collision(self, group, other):
+        if group == 'boy:trainer_1':
+            print('Collide trainer_1')

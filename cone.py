@@ -14,3 +14,7 @@ class CONE:
 
     def get_bb(self):
         return 100, 40, 200, 120
+
+    def handle_collision(self, group, other):
+        if group == 'boy:cone':
+            print('Collide cone')

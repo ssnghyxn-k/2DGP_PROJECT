@@ -53,6 +53,15 @@ def init():
     refrig = REFRIG()
     game_world.add_collision_pair('boy:refrig', boy, refrig)
 
+    fitness_ball =  FITNESS_BALL()
+    game_world.add_collision_pair('boy:fitness_ball', boy, fitness_ball)
+
+    cone = CONE()
+    game_world.add_collision_pair('boy:cone', boy, cone)
+
+    trainer_1 = TRAINER_1()
+    game_world.add_collision_pair('boy:trainer_1', boy, trainer_1)
+
 
 
 def finish():
