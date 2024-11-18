@@ -3,6 +3,8 @@ from pico2d import load_image, load_font, draw_rectangle
 import game_world
 import time
 import random
+import game_framework
+import mini_game_1
 from state_machine import left_up, start_event
 from state_machine import right_down
 from state_machine import right_up
@@ -120,6 +122,8 @@ class Boy:
         self.condition = 100  # 컨디션
         self.hunger = 100     # 허기짐
         self.hearts = 5       # 호감도
+        self.overall = 50     # OVR 50
+        self.ball_count = 0
         self.last_collision_time = 0
         self.font = load_font('ENCR10B.TTF', 20)
         self.image = load_image('animation_sheet.png')
@@ -148,6 +152,7 @@ class Boy:
         self.font.draw(1000, 680, f'Condition:{self.condition:02d}', (0, 255, 255))
         self.font.draw(1000, 650, f'Hunger:{self.hunger:02d}', (255, 255, 0))
         self.font.draw(1000, 30, f'Hearts:{self.hearts:02d}', (255, 0, 255))
+        self.font.draw(self.x - 10, self.y + 50, f'{self.overall:02d}', (255, 255, 0))
         draw_rectangle(*self.get_bb())
 
     def get_bb(self):
@@ -166,12 +171,16 @@ class Boy:
             self.last_collision_time = current_time
 
         elif group == 'boy:fitness_ball':
-            pass
+            game_framework.push_mode(mini_game_1)
 
         elif group == 'boy:cone':
             pass
 
         elif group == 'boy:trainer_1':
             pass
+
+        elif group == 'boy:small_ball':
+            self.ball_count += 1
+
 
 
