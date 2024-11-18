@@ -9,4 +9,4 @@ class FITNESS_BALL:
         pass
 
     def draw(self):
-        self.image.draw(600, 600)
+        self.image.draw(110, 420)
