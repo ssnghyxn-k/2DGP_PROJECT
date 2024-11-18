@@ -78,8 +78,8 @@ def update_scene():
          elif boy.x < 0:
              boy.x = 0
              boy.dir_x = 0
-         elif boy.y > 700:
-             boy.y = 700
+         elif boy.y > 380:
+             boy.y = 380
              boy.dir_y = 0
          elif boy.y < 0:
              boy.y = 0
