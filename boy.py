@@ -2,6 +2,7 @@ from pico2d import load_image, load_font, draw_rectangle
 
 import game_world
 import time
+import random
 from state_machine import left_up, start_event
 from state_machine import right_down
 from state_machine import right_up
@@ -155,12 +156,12 @@ class Boy:
     def handle_collision(self, group, other):
         current_time = time.time()
         if group == 'boy:bed'and (current_time - self.last_collision_time > 1800):  # 게임 시간 30분마다 취침 가능
-            self.condition += 50
+            self.condition += random.randint(20,30)
             self.font.draw(1000, 680, f'Condition:{self.condition:02d}', (0, 255, 255))
             self.last_collision_time = current_time
 
         elif group == 'boy:refrig' and (current_time - self.last_collision_time > 600):  # 게임 시간 10분 마다 식사 가능
-            self.hunger += 30
+            self.hunger += random.randint(20,30)
             self.font.draw(1000, 650, f'Hunger:{self.hunger:02d}', (255, 255, 0))
             self.last_collision_time = current_time
 
