@@ -4,7 +4,6 @@ import game_world
 import time
 import random
 import game_framework
-import mini_game_1
 from state_machine import left_up, start_event
 from state_machine import right_down
 from state_machine import right_up
@@ -171,7 +170,9 @@ class Boy:
             self.last_collision_time = current_time
 
         elif group == 'boy:fitness_ball':
-            game_framework.push_mode(mini_game_1)
+            import mini_game_1
+            game_framework.change_mode(mini_game_1)
+            pass
 
         elif group == 'boy:cone':
             pass

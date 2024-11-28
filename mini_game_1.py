@@ -2,13 +2,16 @@ from pico2d import *
 import game_framework
 import game_world
 import play_mode
+from boy import Boy
 from small_ball import SMALL_BALL
 
 score = 0
 
 def init():
-    global small_ball
-    game_world.add_object(play_mode.Boy, 1)
+    global boy, small_ball
+
+    boy = Boy()
+    game_world.add_object(boy, 1)
 
     small_ball = SMALL_BALL()
     game_world.add_object(small_ball, 1)
@@ -24,7 +27,7 @@ def handle_events():
         elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
             game_framework.change_mode(play_mode)
         else:
-            play_mode.Boy.handle_event(event)
+            boy.handle_event(event)
 
 def update():
     game_world.update()
