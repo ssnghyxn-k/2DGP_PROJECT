@@ -1,7 +1,7 @@
 from pico2d import *
 import game_framework
 import game_world
-import play_mode
+# import play_mode
 from boy import Boy
 from small_ball import SMALL_BALL
 
@@ -13,18 +13,21 @@ def init():
     boy = Boy()
     game_world.add_object(boy, 1)
 
-    small_ball = SMALL_BALL()
-    game_world.add_object(small_ball, 1)
+    small_ball = [SMALL_BALL() for i in range(20)]
+    for ball in small_ball:
+        game_world.add_object(ball, 1)
 
 def finish():
     game_world.clear()
 
 def handle_events():
+    global boy
     events = get_events()
     for event in events:
         if event.type == SDL_QUIT:
             game_framework.quit()
         elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
+            import play_mode
             game_framework.change_mode(play_mode)
         else:
             boy.handle_event(event)
@@ -47,7 +50,7 @@ def draw_text(text, x, y, font_size = 20, color = (255, 255, 255)):
 def draw():
     clear_canvas()
     game_world.render()
-    draw_text(f"Score: {score}", 50, 550, 30, (255, 255, 255))  # Display score
+    draw_text(f"Score: {score}", 50, 650, 30, (255, 255, 255))  # Display score
     update_canvas()
 
 def pause():

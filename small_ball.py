@@ -11,11 +11,11 @@ class SMALL_BALL:
         self.image = load_image('ball21x21.png')
 
     def update(self):
-        self.frame = (self.frame + 1) % 8
         if self.y > 50:
             self.y -= self.speed
         else:
             self.y = 50
+        self.frame = (self.frame + 1) % 8
 
     def draw(self):
         self.image.draw(self.x, self.y)

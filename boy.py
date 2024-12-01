@@ -111,6 +111,12 @@ class Run:
             boy.image.clip_draw(0, row, 210, 280, boy.x, boy.y, c_size, c_size)
 
 
+dialogues = {
+                    "trainer_1": [
+                        "Welcome lad! Feel Good?"
+                    ]
+            }
+
 class Boy:
     def __init__(self):
         self.x, self.y = 300, 300
@@ -136,6 +142,8 @@ class Boy:
             right_up: Idle, left_up: Idle, up_up: Idle, down_up: Idle}
             }
         )
+        self.current_dialogue = None  # 대화 내용
+        self.current_line = 0  # 대화 진행 상태
 
     def update(self):
         self.state_machine.update() #State machine 시킴
@@ -154,8 +162,15 @@ class Boy:
         self.font.draw(self.x - 10, self.y + 50, f'{self.overall:02d}', (255, 255, 0))
         draw_rectangle(*self.get_bb())
 
+        if self.current_dialogue:
+            self.draw_text_box(self.current_dialogue[self.current_line])
+
     def get_bb(self):
         return self.x - 20, self.y - 20, self.x + 20, self.y + 20
+
+    def draw_text_box(self, text, x=100, y=100, box_width=600, box_height=100):
+        draw_rectangle(x, y, x + box_width, y + box_height)  # 대화창 배경
+        self.font.draw(x + 20, y + box_height - 20, text, (255, 255, 255))  # 대화 내용
 
     def handle_collision(self, group, other):
         current_time = time.time()
@@ -178,13 +193,18 @@ class Boy:
             pass
 
         elif group == 'boy:trainer_1':
-            pass
+            self.current_dialogue = dialogues["trainer_1"]
+            self.current_line = 0  # 대화 첫 번째 줄부터 시작
+
 
         elif group == 'boy:small_ball':
             self.ball_count += 1
 
         elif group == 'boy:microphone':
             pass
+
+        else:
+            self.current_dialogue = None
 
 
 
