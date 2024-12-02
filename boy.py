@@ -174,6 +174,17 @@ class Boy:
 
     def handle_collision(self, group, other):
         current_time = time.time()
+
+        if group == 'boy:trainer_1':
+            self.current_dialogue = dialogues["trainer_1"]
+            self.current_line = 0  # 대화 첫 번째 줄부터 시작
+            self.dialogue_start_time = current_time  # 대화 시작 시간 기록
+            self.dialogue_duration = 2
+        else:
+            # 만약 다른 객체와 충돌하면 대화 종료
+            self.current_dialogue = None
+
+
         if group == 'boy:bed'and (current_time - self.last_collision_time > 1800):  # 게임 시간 30분마다 취침 가능
             self.condition += random.randint(20,30)
             self.font.draw(1000, 680, f'Condition:{self.condition:02d}', (0, 255, 255))
@@ -184,17 +195,17 @@ class Boy:
             self.font.draw(1000, 650, f'Hunger:{self.hunger:02d}', (255, 255, 0))
             self.last_collision_time = current_time
 
-        elif group == 'boy:fitness_ball':
-            import mini_game_1
-            game_framework.change_mode(mini_game_1)
-            pass
+        # elif group == 'boy:fitness_ball':
+        #     import mini_game_1
+        #     game_framework.change_mode(mini_game_1)
+        #     pass
 
         elif group == 'boy:cone':
             pass
 
-        elif group == 'boy:trainer_1':
-            self.current_dialogue = dialogues["trainer_1"]
-            self.current_line = 0  # 대화 첫 번째 줄부터 시작
+        # elif group == 'boy:trainer_1':
+        #     self.current_dialogue = dialogues["trainer_1"]
+        #     self.current_line = 0  # 대화 첫 번째 줄부터 시작
 
 
         elif group == 'boy:small_ball':
@@ -202,9 +213,6 @@ class Boy:
 
         elif group == 'boy:microphone':
             pass
-
-        else:
-            self.current_dialogue = None
 
 
 

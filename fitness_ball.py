@@ -10,7 +10,7 @@ class FITNESS_BALL:
 
     def draw(self):
         self.image.draw(110, 420)
-        draw_rectangle(*self.get_bb())
+        # draw_rectangle(*self.get_bb())
 
     def get_bb(self):
         return 70, 380, 150, 460
