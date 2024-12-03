@@ -185,12 +185,12 @@ class Boy:
             self.current_dialogue = None
 
 
-        if group == 'boy:bed'and (current_time - self.last_collision_time > 1800):  # 게임 시간 30분마다 취침 가능
+        if group == 'boy:bed'and (current_time - self.last_collision_time > 600):  # 게임 시간 10분마다 취침 가능
             self.condition += random.randint(20,30)
             self.font.draw(1000, 680, f'Condition:{self.condition:02d}', (0, 255, 255))
             self.last_collision_time = current_time
 
-        elif group == 'boy:refrig' and (current_time - self.last_collision_time > 600):  # 게임 시간 10분 마다 식사 가능
+        elif group == 'boy:refrig' and (current_time - self.last_collision_time > 300):  # 게임 시간 5분 마다 식사 가능
             self.hunger += random.randint(20,30)
             self.font.draw(1000, 650, f'Hunger:{self.hunger:02d}', (255, 255, 0))
             self.last_collision_time = current_time
@@ -203,13 +203,11 @@ class Boy:
         elif group == 'boy:cone':
             pass
 
-        # elif group == 'boy:trainer_1':
-        #     self.current_dialogue = dialogues["trainer_1"]
-        #     self.current_line = 0  # 대화 첫 번째 줄부터 시작
+        elif group == 'boy:trainer':
+            self.condition -= 20
+            self.hunger -= 30
+            game_world.remove_object(other)
 
-
-        elif group == 'boy:small_ball':
-            self.ball_count += 1
 
         elif group == 'boy:microphone':
             pass
