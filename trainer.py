@@ -3,7 +3,7 @@ import play_mode
 
 class Trainer:
     def __init__(self):
-        self.x, self.y = 100, 100
+        self.x, self.y = 600, 350
         self.frame = 0
         self.dir = 2
         self.image = load_image('h_trainer.png')
@@ -18,7 +18,6 @@ class Trainer:
         elif play_mode.boy.y < self.y:
             self.dir = 0  # 아래
 
-        # 캐릭터 이동
         dx, dy = play_mode.boy.x - self.x, play_mode.boy.y - self.y
         distance = (dx ** 2 + dy ** 2) ** 0.5
         if distance > 0:
