@@ -21,6 +21,7 @@ from cone import CONE
 from fitness_ball import FITNESS_BALL
 from microphone import MICROPHONE
 from s_ball import s_Ball
+from drink import Drink
 
 # boy = None
 
@@ -59,7 +60,6 @@ def init():
 
     cone = CONE()
     game_world.add_collision_pair('boy:cone', boy, cone)
-
 
 
 
@@ -176,9 +176,14 @@ def update_scene():
             game_world.add_object(map_4, 0)
             game_world.add_object(cone, 1)
             game_world.add_object(fitness_ball, 1)
-            small_ball = [s_Ball() for i in range(20)]
+            small_ball = [s_Ball() for i in range(10)]
             for ball in small_ball:
                 game_world.add_object(ball, 1)
+                game_world.add_collision_pair('boy:small_ball', boy, ball)
+            drink = [Drink() for i in range(10)]
+            for drinks in drink:
+                game_world.add_object(drinks, 1)
+                game_world.add_collision_pair('boy:drink', boy, drinks)
 
             boy.x = 800
             boy.y = 50

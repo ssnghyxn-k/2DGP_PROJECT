@@ -2,12 +2,12 @@ from pico2d import *
 import game_world
 import random
 
-class s_Ball:
+class Drink:
     def __init__(self):
         self.x, self.y = random.randint(100, 1100), 599
         self.frame = random.randint(0, 7)
         self.speed = random.uniform(3, 5)
-        self.image = load_image('ball21x21.png')
+        self.image = load_image('drink.png')
 
     def update(self):
         if self.y > 50:
@@ -24,6 +24,6 @@ class s_Ball:
         return self.x - 10, self.y - 10, self.x + 10, self.y + 10
 
     def handle_collision(self, group, other):
-        if group == 'boy:small_ball':
+        if group == 'boy:drink':
             game_world.remove_object(self)
 

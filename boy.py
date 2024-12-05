@@ -118,8 +118,8 @@ class Boy:
         self.dir_x = 0
         self.dir_y = 0
         self.action = 3
-        self.condition = 100  # 컨디션
-        self.hunger = 100     # 허기짐
+        self.condition = 50  # 컨디션
+        self.hunger = 50     # 허기짐
         self.hearts = 5       # 호감도
         self.overall = 50     # OVR 50
         self.ball_count = 0
@@ -179,6 +179,12 @@ class Boy:
         #     import mini_game_1
         #     game_framework.change_mode(mini_game_1)
         #     pass
+
+        elif group == 'boy:small_ball':
+            self.overall += 1
+
+        elif group == 'boy:drink':
+            self.condition += 1
 
         elif group == 'boy:cone':
             pass
