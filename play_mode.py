@@ -22,6 +22,7 @@ from fitness_ball import FITNESS_BALL
 from microphone import MICROPHONE
 from s_ball import s_Ball
 from drink import Drink
+from burger import Burger
 
 # boy = None
 
@@ -184,6 +185,11 @@ def update_scene():
             for drinks in drink:
                 game_world.add_object(drinks, 1)
                 game_world.add_collision_pair('boy:drink', boy, drinks)
+            burger = [Burger() for i in range(7)]
+            for burgers in burger:
+                game_world.add_object(burgers, 1)
+                game_world.add_collision_pair('boy:burger', boy, burgers)
+
 
             boy.x = 800
             boy.y = 50

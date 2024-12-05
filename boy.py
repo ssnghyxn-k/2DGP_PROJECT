@@ -186,6 +186,9 @@ class Boy:
         elif group == 'boy:drink':
             self.condition += 1
 
+        elif group == 'boy:burger':
+            self.condition -= 5
+
         elif group == 'boy:cone':
             pass
 

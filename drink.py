@@ -10,10 +10,7 @@ class Drink:
         self.image = load_image('drink.png')
 
     def update(self):
-        if self.y > 50:
-            self.y -= self.speed
-        else:
-            self.y = 50
+        self.y -= self.speed
         self.frame = (self.frame + 1) % 8
 
     def draw(self):
