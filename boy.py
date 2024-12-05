@@ -175,11 +175,6 @@ class Boy:
             self.font.draw(1000, 650, f'Hunger:{self.hunger:02d}', (255, 255, 0))
             self.last_collision_time = current_time
 
-        # elif group == 'boy:fitness_ball':
-        #     import mini_game_1
-        #     game_framework.change_mode(mini_game_1)
-        #     pass
-
         elif group == 'boy:small_ball':
             self.overall += 1
 
@@ -189,9 +184,8 @@ class Boy:
         elif group == 'boy:burger':
             self.condition -= 5
 
-        elif group == 'boy:cone':
+        elif group == 'boy:trainer':
             pass
-
 
         elif group == 'boy:microphone':
             pass

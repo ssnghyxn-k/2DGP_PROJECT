@@ -17,8 +17,6 @@ from player_1 import PLAYER_1
 from player_2 import PLAYER_2
 from player_3 import PLAYER_3
 from manager import MANAGER
-from cone import CONE
-from fitness_ball import FITNESS_BALL
 from microphone import MICROPHONE
 from s_ball import s_Ball
 from drink import Drink
@@ -159,13 +157,7 @@ def update_scene():
 
         elif current_scene == 'map_4':
             map_4 = MAP_4()
-            cone = CONE()
-            fitness_ball = FITNESS_BALL()
             game_world.add_object(map_4, 0)
-            game_world.add_object(cone, 1)
-            game_world.add_collision_pair('boy:cone', boy, cone)
-            game_world.add_object(fitness_ball, 1)
-            game_world.add_collision_pair('boy:fitness_ball', boy, fitness_ball)
             small_ball = [s_Ball() for i in range(10)]
             for ball in small_ball:
                 game_world.add_object(ball, 1)
