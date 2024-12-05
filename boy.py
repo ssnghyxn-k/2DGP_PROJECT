@@ -111,12 +111,6 @@ class Run:
             boy.image.clip_draw(0, row, 210, 280, boy.x, boy.y, c_size, c_size)
 
 
-dialogues = {
-                    "trainer_1": [
-                        "Welcome lad! Feel Good?"
-                    ]
-            }
-
 class Boy:
     def __init__(self):
         self.x, self.y = 300, 300
@@ -142,8 +136,6 @@ class Boy:
             right_up: Idle, left_up: Idle, up_up: Idle, down_up: Idle}
             }
         )
-        self.current_dialogue = None  # 대화 내용
-        self.current_line = 0  # 대화 진행 상태
 
     def update(self):
         self.state_machine.update() #State machine 시킴
@@ -162,8 +154,6 @@ class Boy:
         self.font.draw(self.x - 10, self.y + 50, f'{self.overall:02d}', (255, 255, 0))
         draw_rectangle(*self.get_bb())
 
-        if self.current_dialogue:
-            self.draw_text_box(self.current_dialogue[self.current_line])
 
     def get_bb(self):
         return self.x - 20, self.y - 20, self.x + 20, self.y + 20
@@ -174,16 +164,6 @@ class Boy:
 
     def handle_collision(self, group, other):
         current_time = time.time()
-
-        if group == 'boy:trainer_1':
-            self.current_dialogue = dialogues["trainer_1"]
-            self.current_line = 0  # 대화 첫 번째 줄부터 시작
-            self.dialogue_start_time = current_time  # 대화 시작 시간 기록
-            self.dialogue_duration = 2
-        else:
-            # 만약 다른 객체와 충돌하면 대화 종료
-            self.current_dialogue = None
-
 
         if group == 'boy:bed'and (current_time - self.last_collision_time > 600):  # 게임 시간 10분마다 취침 가능
             self.condition += random.randint(20,30)
@@ -202,11 +182,6 @@ class Boy:
 
         elif group == 'boy:cone':
             pass
-
-        elif group == 'boy:trainer':
-            self.condition -= 20
-            self.hunger -= 30
-            game_world.remove_object(other)
 
 
         elif group == 'boy:microphone':

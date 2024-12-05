@@ -19,8 +19,8 @@ from player_3 import PLAYER_3
 from manager import MANAGER
 from cone import CONE
 from fitness_ball import FITNESS_BALL
-from trainer_1 import TRAINER_1
 from microphone import MICROPHONE
+from s_ball import s_Ball
 
 # boy = None
 
@@ -35,7 +35,7 @@ def handle_events():
             boy.handle_event(event)
 
 def init():
-    global boy, bed, refrig
+    global boy
     global tu_ground
     global current_scene, previous_scene
 
@@ -59,10 +59,6 @@ def init():
 
     cone = CONE()
     game_world.add_collision_pair('boy:cone', boy, cone)
-
-    trainer_1 = TRAINER_1()
-    game_world.add_collision_pair('boy:trainer_1', boy, trainer_1)
-
 
 
 
@@ -177,11 +173,13 @@ def update_scene():
             map_4 = MAP_4()
             cone = CONE()
             fitness_ball = FITNESS_BALL()
-            trainer_1 = TRAINER_1()
             game_world.add_object(map_4, 0)
             game_world.add_object(cone, 1)
             game_world.add_object(fitness_ball, 1)
-            game_world.add_object(trainer_1, 1)
+            small_ball = [s_Ball() for i in range(20)]
+            for ball in small_ball:
+                game_world.add_object(ball, 1)
+
             boy.x = 800
             boy.y = 50
 
