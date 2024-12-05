@@ -23,8 +23,7 @@ from microphone import MICROPHONE
 from s_ball import s_Ball
 from drink import Drink
 from burger import Burger
-
-# boy = None
+from trainer import Trainer
 
 def handle_events():
     events = get_events()
@@ -179,7 +178,9 @@ def update_scene():
             for burgers in burger:
                 game_world.add_object(burgers, 1)
                 game_world.add_collision_pair('boy:burger', boy, burgers)
-
+            trainer = Trainer()
+            game_world.add_object(trainer, 1)
+            game_world.add_collision_pair('boy:trainer', boy, trainer)
 
             boy.x = 800
             boy.y = 50
