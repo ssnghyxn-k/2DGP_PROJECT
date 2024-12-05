@@ -120,8 +120,8 @@ class Boy:
         self.action = 3
         self.condition = 50  # 컨디션
         self.hunger = 50     # 허기짐
-        self.hearts = 5       # 호감도
-        self.overall = 50     # OVR 50
+        self.overall = 50    # OVR 50
+        self.level = 1       # LEVEL
         self.ball_count = 0
         self.last_collision_time = 0
         self.font = load_font('ENCR10B.TTF', 20)
@@ -150,7 +150,7 @@ class Boy:
         self.state_machine.cur_state.draw(self)
         self.font.draw(1000, 680, f'Condition:{self.condition:02d}', (0, 255, 255))
         self.font.draw(1000, 650, f'Hunger:{self.hunger:02d}', (255, 255, 0))
-        self.font.draw(1000, 30, f'Hearts:{self.hearts:02d}', (255, 0, 255))
+        self.font.draw(10, 680, f'Level:{self.level:02d}', (255, 255, 255))
         self.font.draw(self.x - 10, self.y + 50, f'{self.overall:02d}', (255, 255, 0))
         draw_rectangle(*self.get_bb())
 

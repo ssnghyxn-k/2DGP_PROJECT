@@ -50,20 +50,6 @@ def init():
     tr_ground = TR_GROUND()
     game_world.add_object(tr_ground, 0)
 
-    bed = BED()
-    game_world.add_collision_pair('boy:bed', boy, bed)
-
-    refrig = REFRIG()
-    game_world.add_collision_pair('boy:refrig', boy, refrig)
-
-    fitness_ball =  FITNESS_BALL()
-    game_world.add_collision_pair('boy:fitness_ball', boy, fitness_ball)
-
-    cone = CONE()
-    game_world.add_collision_pair('boy:cone', boy, cone)
-
-
-
 
 def finish():
     game_world.clear()
@@ -150,6 +136,8 @@ def update_scene():
             game_world.add_object(map_2, 0)
             game_world.add_object(bed, 1)
             game_world.add_object(refrig, 1)
+            game_world.add_collision_pair('boy:bed', boy, bed)
+            game_world.add_collision_pair('boy:refrig', boy, refrig)
             boy.x = 1100
             boy.y = 100
 
@@ -176,7 +164,9 @@ def update_scene():
             fitness_ball = FITNESS_BALL()
             game_world.add_object(map_4, 0)
             game_world.add_object(cone, 1)
+            game_world.add_collision_pair('boy:cone', boy, cone)
             game_world.add_object(fitness_ball, 1)
+            game_world.add_collision_pair('boy:fitness_ball', boy, fitness_ball)
             small_ball = [s_Ball() for i in range(10)]
             for ball in small_ball:
                 game_world.add_object(ball, 1)
