@@ -1,5 +1,6 @@
 from pico2d import *
 import play_mode
+import game_world
 
 class Player_3:
     def __init__(self):
@@ -34,6 +35,7 @@ class Player_3:
         self.image.clip_draw(self.frame * 64, self.dir * 64, 64, 64, self.x, self.y)
         draw_rectangle(*self.get_bb())
 
+
     def handle_collision(self, group, other):
-        if group == 'm_ball:player_3':
-            pass
+        if group == 'm_ball:post':
+            self.stop()

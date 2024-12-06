@@ -1,7 +1,7 @@
 from pico2d import *
 import game_framework
 import play_mode
-import tr_ground
+import game_world
 
 class m_Ball:
     def __init__(self):
@@ -33,7 +33,8 @@ class m_Ball:
         if group in ['m_ball:player_1', 'm_ball:player_2', 'm_ball:player_3']:
             game_framework.quit()
         elif group == 'm_ball:post':
-            pass
+            play_mode.boy.money += 50
+            game_world.remove_object(self)
 
 
 
