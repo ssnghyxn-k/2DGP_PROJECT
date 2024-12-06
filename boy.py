@@ -179,11 +179,16 @@ class Boy:
             self.overall += 1
 
         elif group == 'boy:drink':
-            self.condition += 3
-
+            self.condition += 10
+            while self.condition >= 100:
+                self.level += 1
+                self.condition = 50
 
         elif group == 'boy:burger':
             self.condition -= 5
+            # if self.condition >= 100:
+            #     self.level += 1
+            #     self.condition = 50
 
         elif group == 'boy:trainer':
             pass
