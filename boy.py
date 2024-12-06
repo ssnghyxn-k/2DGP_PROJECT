@@ -202,6 +202,9 @@ class Boy:
         elif group == 'boy:player_3':
             pass
 
+        elif group == 'boy:manager':
+            pass
+
         elif group == 'boy:microphone':
             pass
 
