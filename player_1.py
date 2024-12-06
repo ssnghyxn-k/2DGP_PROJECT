@@ -3,7 +3,7 @@ import play_mode
 
 class Player_1:
     def __init__(self):
-        self.x, self.y = 600, 350
+        self.x, self.y = 200, 500
         self.frame = 0
         self.dir = 2
         self.image = load_image('player_1.png')
@@ -21,8 +21,8 @@ class Player_1:
         dx, dy = play_mode.boy.x - self.x, play_mode.boy.y - self.y
         distance = (dx ** 2 + dy ** 2) ** 0.5
         if distance > 0:
-            self.x += dx / distance * 2
-            self.y += dy / distance * 2
+            self.x += dx / distance * 4
+            self.y += dy / distance * 4
 
         self.frame = (self.frame + 1) % 4
 
