@@ -12,7 +12,6 @@ from map_4 import MAP_4
 from map_5 import MAP_5
 from bed import BED
 from refrig import REFRIG
-from goal_post import GOAL_POST
 from player_1 import Player_1
 from player_2 import Player_2
 from player_3 import Player_3
@@ -140,13 +139,11 @@ def update_scene():
 
         elif current_scene == 'map_3':
             map_3 = MAP_3()
-            goal_post = GOAL_POST()
             player_1 = Player_1()
             player_2 = Player_2()
             player_3 = Player_3()
             manager = Manager()
             game_world.add_object(map_3, 0)
-            game_world.add_object(goal_post, 1)
             game_world.add_object(player_1, 1)
             game_world.add_object(player_2, 1)
             game_world.add_object(player_3, 1)
