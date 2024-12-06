@@ -15,7 +15,7 @@ from refrig import REFRIG
 from goal_post import GOAL_POST
 from player_1 import Player_1
 from player_2 import Player_2
-from player_3 import PLAYER_3
+from player_3 import Player_3
 from manager import MANAGER
 from microphone import MICROPHONE
 from s_ball import s_Ball
@@ -143,7 +143,7 @@ def update_scene():
             goal_post = GOAL_POST()
             player_1 = Player_1()
             player_2 = Player_2()
-            player_3 = PLAYER_3()
+            player_3 = Player_3()
             manager = MANAGER()
             game_world.add_object(map_3, 0)
             game_world.add_object(goal_post, 1)

@@ -199,6 +199,9 @@ class Boy:
         elif group == 'boy:player_2':
             pass
 
+        elif group == 'boy:player_3':
+            pass
+
         elif group == 'boy:microphone':
             pass
 
