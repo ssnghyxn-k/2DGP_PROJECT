@@ -165,17 +165,7 @@ class Boy:
     def handle_collision(self, group, other):
         current_time = time.time()
 
-        if group == 'boy:bed'and (current_time - self.last_collision_time > 600):  # 게임 시간 10분마다 취침 가능
-            self.condition += random.randint(20,30)
-            self.font.draw(1000, 680, f'Condition:{self.condition:02d}', (0, 255, 255))
-            self.last_collision_time = current_time
-
-        elif group == 'boy:refrig' and (current_time - self.last_collision_time > 300):  # 게임 시간 5분 마다 식사 가능
-            self.hunger += random.randint(20,30)
-            self.font.draw(1000, 650, f'Hunger:{self.hunger:02d}', (255, 255, 0))
-            self.last_collision_time = current_time
-
-        elif group == 'boy:small_ball':
+        if group == 'boy:small_ball':
             self.overall += 1
 
         elif group == 'boy:drink' and self.condition < 100:

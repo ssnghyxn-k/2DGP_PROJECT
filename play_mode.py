@@ -10,8 +10,6 @@ from map_2 import MAP_2
 from map_3 import MAP_3
 from map_4 import MAP_4
 from map_5 import MAP_5
-from bed import BED
-from refrig import REFRIG
 from player_1 import Player_1
 from player_2 import Player_2
 from player_3 import Player_3
@@ -56,28 +54,28 @@ def update_scene():
 
     if current_scene == 'TR_GROUND':
         if boy.x < 0:
-            current_scene = 'map_2'
+            current_scene = 'map_4'
         elif boy.x > 1200:
             current_scene = 'map_3'
         elif boy.y > 700:
-            current_scene = 'map_4'
+            current_scene = 'map_2'
         elif boy.y < 0:
             current_scene = 'map_5'
 
-    elif current_scene == 'map_2':
-         if boy.x > 1200:
+    elif current_scene == 'map_2': # market
+         if boy.y < 0:
             current_scene = 'TR_GROUND'
          elif boy.x < 0:
              boy.x = 0
              boy.dir_x = 0
-         elif boy.y > 380:
-             boy.y = 380
+         elif boy.y > 700:
+             boy.y = 700
              boy.dir_y = 0
-         elif boy.y < 0:
-             boy.y = 0
-             boy.dir_y = 0
+         elif boy.x > 1200:
+             boy.x = 1200
+             boy.dir_x = 0
 
-    elif current_scene == 'map_3':
+    elif current_scene == 'map_3': # stadium
          if boy.x < 0:
             current_scene = 'TR_GROUND'
          elif boy.x > 1200:
@@ -90,7 +88,7 @@ def update_scene():
              boy.y = 0
              boy.dir_y = 0
 
-    elif current_scene == 'map_4':
+    elif current_scene == 'map_4': # training
         if boy.y < 0:
             current_scene = 'TR_GROUND'
         elif boy.y > 700:
@@ -127,15 +125,9 @@ def update_scene():
 
         elif current_scene == 'map_2':
             map_2 = MAP_2()
-            bed = BED()
-            refrig = REFRIG()
             game_world.add_object(map_2, 0)
-            game_world.add_object(bed, 1)
-            game_world.add_object(refrig, 1)
-            game_world.add_collision_pair('boy:bed', boy, bed)
-            game_world.add_collision_pair('boy:refrig', boy, refrig)
-            boy.x = 1100
-            boy.y = 100
+            boy.x = 550
+            boy.y = 10
 
         elif current_scene == 'map_3':
             map_3 = MAP_3()
