@@ -66,7 +66,7 @@ def remove_collision_object(o):
 
 def handle_collisions():
     processed_collisions = set()
-    for group, pairs in collision_pairs.items():
+    for group, pairs in list(collision_pairs.items()):
         for a in pairs[0]:
             for b in pairs[1]:
                 if a == b:

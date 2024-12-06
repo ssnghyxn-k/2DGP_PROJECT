@@ -35,5 +35,5 @@ class Player_3:
         draw_rectangle(*self.get_bb())
 
     def handle_collision(self, group, other):
-        if group == 'boy:player_3':
+        if group == 'm_ball:player_3':
             pass

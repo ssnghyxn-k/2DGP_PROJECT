@@ -1,7 +1,7 @@
 from pico2d import *
-import game_world
+import game_framework
 import play_mode
-import random
+import tr_ground
 
 class m_Ball:
     def __init__(self):
@@ -30,5 +30,10 @@ class m_Ball:
         return self.x - 10, self.y - 10, self.x + 10, self.y + 10
 
     def handle_collision(self, group, other):
-        pass
+        if group in ['m_ball:player_1', 'm_ball:player_2', 'm_ball:player_3']:
+            game_framework.quit()
+        elif group == 'm_ball:post':
+            pass
+
+
 

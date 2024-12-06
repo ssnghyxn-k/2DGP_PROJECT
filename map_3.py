@@ -9,7 +9,7 @@ class MAP_3:
 
     def draw(self):
         self.image.draw(600, 350)
-        draw_rectangle(*self.get_bb())
+        #draw_rectangle(*self.get_bb())
 
-    def get_bb(self):
-        return 1120, 340, 1180, 450
+    # def get_bb(self):
+    #     return 1120, 340, 1180, 450
