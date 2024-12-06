@@ -195,8 +195,3 @@ class Boy:
         elif group == 'boy:manager':
             pass
 
-        elif group == 'boy:microphone':
-            pass
-
-
-
