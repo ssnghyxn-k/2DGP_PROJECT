@@ -3,7 +3,7 @@ import play_mode
 
 class Player_1:
     def __init__(self):
-        self.x, self.y = 200, 500
+        self.x, self.y = 600, 500
         self.frame = 0
         self.dir = 2
         self.image = load_image('player_1.png')

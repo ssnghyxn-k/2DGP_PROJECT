@@ -184,11 +184,11 @@ class Boy:
                 self.level += 1
                 self.condition = 50
 
-        elif group == 'boy:burger':
+        elif group == 'boy:burger' and self.condition > 10:
             self.condition -= 5
-            # if self.condition >= 100:
-            #     self.level += 1
-            #     self.condition = 50
+            if self.condition <= 10:
+                self.level -= 1
+                self.condition = 50
 
         elif group == 'boy:trainer':
             pass
