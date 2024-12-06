@@ -118,12 +118,12 @@ class Boy:
         self.dir_x = 0
         self.dir_y = 0
         self.action = 3
-        self.condition = 50  # 컨디션
-        self.hunger = 50     # 허기짐
-        self.overall = 50    # OVR 50
-        self.level = 1       # LEVEL
-        self.ball_count = 0
-        self.last_collision_time = 0
+
+        self.condition = 50  # 컨디션   --> if 100: level += 1
+        self.overall = 50    # OVR 50  --> increase 50: level += 1
+        self.level = 1       # LEVEL   --> base
+        self.money = 0       # Money   --> buy food for pets
+
         self.font = load_font('ENCR10B.TTF', 20)
         self.image = load_image('animation_sheet.png')
         self.state_machine = StateMachine(self)
@@ -149,7 +149,6 @@ class Boy:
     def draw(self):
         self.state_machine.cur_state.draw(self)
         self.font.draw(1000, 680, f'Condition:{self.condition:02d}', (0, 255, 255))
-        self.font.draw(1000, 650, f'Hunger:{self.hunger:02d}', (255, 255, 0))
         self.font.draw(10, 680, f'Level:{self.level:02d}', (255, 255, 255))
         self.font.draw(self.x - 10, self.y + 50, f'{self.overall:02d}', (255, 255, 0))
         draw_rectangle(*self.get_bb())
