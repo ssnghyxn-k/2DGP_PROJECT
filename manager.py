@@ -3,7 +3,7 @@ import play_mode
 
 class Manager:
     def __init__(self):
-        self.x, self.y = 900, 50
+        self.x, self.y = 600, 50
         self.frame = 0
         self.dir = 2
         self.image = load_image('manager.png')
@@ -11,18 +11,24 @@ class Manager:
     def update(self):
         if play_mode.boy.x > self.x:
             self.dir = 1  # 오른쪽
+            self.x += 1
+            if self.x >= 800:
+                self.x -= 1
         elif play_mode.boy.x < self.x:
             self.dir = 2  # 왼쪽
+            self.x -= 1
+            if self.x <= 400:
+                self.x += 1
         elif play_mode.boy.y > self.y:
             self.dir = 3  # 위
         elif play_mode.boy.y < self.y:
             self.dir = 0  # 아래
 
-        dx, dy = play_mode.boy.x - self.x, play_mode.boy.y - self.y
-        distance = (dx ** 2 + dy ** 2) ** 0.5
-        if distance > 0:
-            self.x += dx / distance * 1
-            self.y += dy / distance * 1
+        # dx, dy = play_mode.boy.x - self.x, play_mode.boy.y - self.y
+        # distance = (dx ** 2 + dy ** 2) ** 0.5
+        # if distance > 0:
+        #     self.x += dx / distance * 1
+        #     self.y += dy / distance * 1
 
         self.frame = (self.frame + 1) % 4
 
