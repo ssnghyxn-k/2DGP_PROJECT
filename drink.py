@@ -8,6 +8,7 @@ class Drink:
         # self.frame = random.randint(0, 7)
         # self.speed = random.uniform(3, 5)
         self.image = load_image('drink.png')
+        self.removed = False
 
     def update(self):
         # self.y -= self.speed
@@ -22,6 +23,9 @@ class Drink:
         return self.x - 10, self.y - 10, self.x + 10, self.y + 10
 
     def handle_collision(self, group, other):
+        if self.removed:
+            return
         if group == 'boy:drink':
+            self.removed = True
             game_world.remove_object(self)
 

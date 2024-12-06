@@ -25,12 +25,14 @@ def remove_object(o):
             remove_collision_object(o)
             del o
             return
-    raise ValueError('Cannot delete non existing object')
+    print(f"Warning: Attempted to remove non-existing object: {o}")
 
 
 def clear():
     for layer in world:
-        layer.clear()
+        for o in layer[:]:
+            remove_object(o)
+    collision_pairs.clear()
 
 def collide(a, b):
     left_a, bottom_a, right_a, top_a = a.get_bb()
@@ -63,9 +65,15 @@ def remove_collision_object(o):
 
 
 def handle_collisions():
+    processed_collisions = set()
     for group, pairs in collision_pairs.items():
         for a in pairs[0]:
             for b in pairs[1]:
+                if a == b:
+                    continue
+                if (a, b) in processed_collisions or (b, a) in processed_collisions:
+                    continue  # 중복 충돌 방지
                 if collide(a, b):
                     a.handle_collision(group, b)
                     b.handle_collision(group, a)
+                    processed_collisions.add((a,b))

@@ -87,8 +87,8 @@ class Run:
 
     @staticmethod
     def do(boy):
-        boy.x += boy.dir_x * 5
-        boy.y += boy.dir_y * 5
+        boy.x += boy.dir_x * 8
+        boy.y += boy.dir_y * 8
         boy.frame = (boy.frame + 1) % 4
 
     @staticmethod
@@ -178,7 +178,7 @@ class Boy:
         elif group == 'boy:small_ball':
             self.overall += 1
 
-        elif group == 'boy:drink':
+        elif group == 'boy:drink' and self.condition < 100:
             self.condition += 10
             while self.condition >= 100:
                 self.level += 1
