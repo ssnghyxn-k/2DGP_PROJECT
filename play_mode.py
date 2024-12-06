@@ -14,7 +14,6 @@ from player_1 import Player_1
 from player_2 import Player_2
 from player_3 import Player_3
 from manager import Manager
-from microphone import MICROPHONE
 from s_ball import s_Ball
 from drink import Drink
 from burger import Burger
@@ -54,13 +53,13 @@ def update_scene():
 
     if current_scene == 'TR_GROUND':
         if boy.x < 0:
-            current_scene = 'map_4'
+            current_scene = 'map_4'   # left -> training
         elif boy.x > 1200:
-            current_scene = 'map_3'
+            current_scene = 'map_3'   # right -> stadium
         elif boy.y > 700:
-            current_scene = 'map_2'
+            current_scene = 'map_2'   # top -> market
         elif boy.y < 0:
-            current_scene = 'map_5'
+            current_scene = 'map_5'   # bottom -> field
 
     elif current_scene == 'map_2': # market
          if boy.y < 0:
@@ -168,12 +167,9 @@ def update_scene():
 
         elif current_scene == 'map_5':
             map_5 = MAP_5()
-            microphone = MICROPHONE()
             game_world.add_object(map_5, 0)
-            game_world.add_object(microphone, 1)
             boy.x = 600
             boy.y = 350
-
 
         game_world.add_object(boy, 1)
         previous_scene = current_scene
