@@ -18,6 +18,7 @@ from s_ball import s_Ball
 from drink import Drink
 from burger import Burger
 from trainer import Trainer
+from m_ball import m_Ball
 
 def handle_events():
     events = get_events()
@@ -134,11 +135,13 @@ def update_scene():
             player_2 = Player_2()
             player_3 = Player_3()
             manager = Manager()
+            m_ball = m_Ball()
             game_world.add_object(map_3, 0)
             game_world.add_object(player_1, 1)
             game_world.add_object(player_2, 1)
             game_world.add_object(player_3, 1)
             game_world.add_object(manager, 1)
+            game_world.add_object(m_ball, 1)
             boy.x = 200
             boy.y = 350
 

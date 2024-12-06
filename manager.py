@@ -20,9 +20,9 @@ class Manager:
             if self.x <= 400:
                 self.x += 1
         elif play_mode.boy.y > self.y:
-            self.dir = 3  # 위
+            self.dir = 0  # 위
         elif play_mode.boy.y < self.y:
-            self.dir = 0  # 아래
+            self.dir = 3  # 아래
 
         # dx, dy = play_mode.boy.x - self.x, play_mode.boy.y - self.y
         # distance = (dx ** 2 + dy ** 2) ** 0.5
