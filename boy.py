@@ -201,3 +201,6 @@ class Boy:
         elif group == 'boy:cat':
             pass
 
+        elif group == 'boy:pig':
+            pass
+

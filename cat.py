@@ -31,7 +31,7 @@ class Cat:
             else:
                 self.frame = (self.frame + 1) % 4
 
-            print(f"Current cat state: {self.state}")
+            #print(f"Current cat state: {self.state}")
 
         # 상태 변경
         if current_time - self.last_state_change_time >= self.state_change_interval:
