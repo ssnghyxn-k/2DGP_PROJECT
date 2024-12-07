@@ -5,7 +5,7 @@ class Dog:
     def __init__(self):
         self.x, self.y = 600, 500
         self.frame = 0
-        self.dir = 1
+        self.dir = 0
         self.state = "idle"
         self.image = load_image('dog.png')
         self.last_update_time = 0  # 애니메이션 업데이트 시간
@@ -32,61 +32,57 @@ class Dog:
         if self.state == "idle":
             self.dir = 4
         elif self.state == "walk_down":
-            self.dir = 0
+            self.dir = 8
             self.move()
         elif self.state == "walk_right":
-            self.dir = 1
+            self.dir = 7
             self.move()
         elif self.state == "walk_up":
-            self.dir = 2
+            self.dir = 6
             self.move()
         elif self.state == "walk_left":
-            self.dir = 3
+            self.dir = 5
             self.move()
         elif self.state == "sit":
-            self.dir = 5
+            self.dir = 3
         elif self.state == "pant":
-            self.dir = 6
+            self.dir = 2
         elif self.state == "sleep":
-            self.dir = 7
+            self.dir = 1
         elif self.state == "run":
-            self.dir = 8
+            self.dir = 0
             self.move()
 
     def move(self):
-        if self.dir == 2:
-            self.y += 2
-            if self.y > 650:
-                self.y = 650
-        elif self.dir == 0:
+        if self.dir == 8:   # down
             self.y -= 2
-            if self.y < 50:
-                self.y = 50
-        elif self.dir == 4:
-            self.x -= 2
-            if self.x < 100:
-                self.x = 100
-        elif self.dir == 1:
+            if self.y < 100:
+                self.y = 100
+        elif self.dir == 7: # right
             self.x += 2
             if self.x > 1100:
                 self.x = 1100
-        elif self.dir == 3:
+        elif self.dir == 6: # up
+            self.y += 2
+            if self.y > 600:
+                self.y = 600
+        elif self.dir == 5: #left
             self.x -= 2
             if self.x < 100:
                 self.x = 100
         elif self.dir == 4:
             self.x = self.x
             self.y = self.y
-        elif self.dir == 5:
+        elif self.dir == 3:
             self.x = self.x
             self.y = self.y
-        elif self.dir == 6:
+        elif self.dir == 2:
             self.x = self.x
             self.y = self.y
-        elif self.dir == 7:
+        elif self.dir == 1:
             self.x = self.x
             self.y = self.y
-        elif self.dir == 8:
+        elif self.dir == 0:
             self.x += 2
             if self.x > 1100:
                 self.x = 1100
