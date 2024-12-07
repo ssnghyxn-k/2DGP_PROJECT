@@ -24,6 +24,7 @@ from dog import Dog
 from cat import Cat
 from pig import Pig
 from sheep import Sheep
+from meat import Meat
 
 def handle_events():
     events = get_events()
@@ -144,6 +145,8 @@ def update_scene():
         elif current_scene == 'map_2':
             map_2 = MAP_2()
             game_world.add_object(map_2, 0)
+            meat = Meat()
+            game_world.add_object(meat, 0)
             boy.x = 550
             boy.y = 10
 

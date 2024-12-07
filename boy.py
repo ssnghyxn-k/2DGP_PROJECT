@@ -210,3 +210,6 @@ class Boy:
         elif group == 'boy:box_1':
             self.x = self.x
             self.y = self.y
+
+        elif group == 'boy:meat':
+            pass
