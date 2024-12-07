@@ -155,7 +155,7 @@ class Boy:
         self.font.draw(10, 680, f'Level:{self.level:02d}', (255, 255, 255))
         self.font.draw(self.x - 10, self.y + 50, f'{self.overall:02d}', (255, 255, 0))
         self.font.draw(1000, 650, f'Money:{self.money:02d}$', (0, 255, 0))
-        self.font.draw(1000, 50, f'Heart:{self.money:01d}', (255, 0, 255))
+        self.font.draw(1000, 50, f'Heart:{self.heart:01d}', (255, 0, 255))
 
         draw_rectangle(*self.get_bb())
 

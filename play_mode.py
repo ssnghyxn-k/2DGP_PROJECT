@@ -62,6 +62,29 @@ def update_scene():
     global current_scene, previous_scene
 
     if current_scene == 'TR_GROUND':
+        # if 200 <= boy.x <= 300:           #x가 200~300일때
+        #     if boy.y > 700:               #위로 가면
+        #         current_scene = 'map_2'
+        #     elif boy.y < 0:               #아래 가면
+        #         current_scene = 'map_5'
+        #
+        #     if 0 <= boy.y <= 200 and 360 <= boy.y < 700:
+        #         if boy.x < 200:
+        #             boy.x = 200
+        #         elif boy.x < 300:
+        #             boy.x = 300
+        #
+        # elif 0 <= boy.x <= 200 and 300 <= boy.x <= 1200:  #x가 0~200, 300~1200일때
+        #     if boy.x < 0:
+        #         current_scene = 'map_4' #왼쪽
+        #     elif boy.x > 1200:
+        #         current_scene = 'map_3' #오른쪽
+        #
+        #     if boy.y > 360:
+        #         boy.y = 360
+        #     elif boy.y < 320:
+        #         boy.y = 320
+
         if boy.x < 0:
             current_scene = 'map_4'   # left -> training
         elif boy.x > 1200:
