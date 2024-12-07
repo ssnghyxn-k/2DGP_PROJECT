@@ -132,7 +132,7 @@ class Dog:
             elif self.frame == 1:
                 self.image.clip_draw(self.frame * 32, self.dir * 32, 32, 32, self.x, self.y)
             elif self.frame == 2:
-                self.image.clip_draw(self.frame * 32, self.dir * 32, 32, 32, self.x, self.y)
+                self.image.clip_draw(self.frame * 64, self.dir * 64, 64, 64, self.x, self.y)
         elif self.state == "idle":
             self.image.clip_draw(self.frame * 32, self.dir * 32, 32, 32, self.x, self.y)
 
