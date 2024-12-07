@@ -6,10 +6,12 @@ class Dog:
         self.x, self.y = 600, 500
         self.frame = 0
         self.dir = 0
-        self.state = "idle"
+        self.state = "sleep"
         self.image = load_image('dog.png')
         self.last_update_time = 0  # 애니메이션 업데이트 시간
         self.frame_interval = 0.2  # 애니메이션 프레임 갱신 간격
+        self.sleep_frame_interval = 0.5
+        self.run_frame_interval = 0.1
         self.last_direction_change_time = 0  # 방향 변경 시간
         self.direction_change_interval = 1  # 방향 변경 간격 (초)
         self.state_change_interval = 3  # 상태 변경 간격 (초)
@@ -18,9 +20,21 @@ class Dog:
     def update(self):
         current_time = get_time()
 
-        if current_time - self.last_update_time >= self.frame_interval:
+        if self.state == "sleep":
+            frame_interval = self.sleep_frame_interval
+        elif self.state == "run":
+            frame_interval = self.run_frame_interval
+        else:
+            frame_interval = self.frame_interval
+
+        if current_time - self.last_update_time >= frame_interval:
             self.last_update_time = current_time
-            self.frame = (self.frame + 1) % 4
+            if self.state == "sleep":
+                self.frame = (self.frame + 1) % 2
+            elif self.state == "run":
+                self.frame = (self.frame + 1) % 3
+            else:
+                self.frame = (self.frame + 1) % 4
 
             print(f"Current state: {self.state}")
 
@@ -108,9 +122,17 @@ class Dog:
         elif self.state == "pant":
             self.image.clip_draw(self.frame * 32, self.dir * 32, 32, 32, self.x, self.y)
         elif self.state == "sleep":
-            self.image.clip_draw(self.frame * 32, self.dir * 32, 32, 32, self.x, self.y)
+            if self.frame == 0:
+                self.image.clip_draw(self.frame * 32, self.dir * 32, 32, 32, self.x, self.y)
+            elif self.frame == 1:
+                self.image.clip_draw(self.frame * 32, self.dir * 32, 32, 32, self.x, self.y)
         elif self.state == "run":
-            self.image.clip_draw(self.frame * 32, self.dir * 32, 32, 32, self.x, self.y)
+            if self.frame == 0:
+                self.image.clip_draw(self.frame * 32, self.dir * 32, 32, 32, self.x, self.y)
+            elif self.frame == 1:
+                self.image.clip_draw(self.frame * 32, self.dir * 32, 32, 32, self.x, self.y)
+            elif self.frame == 2:
+                self.image.clip_draw(self.frame * 32, self.dir * 32, 32, 32, self.x, self.y)
         elif self.state == "idle":
             self.image.clip_draw(self.frame * 32, self.dir * 32, 32, 32, self.x, self.y)
 
