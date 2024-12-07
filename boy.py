@@ -198,3 +198,6 @@ class Boy:
         elif group == 'boy:dog':
             pass
 
+        elif group == 'boy:cat':
+            pass
+

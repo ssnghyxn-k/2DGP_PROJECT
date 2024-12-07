@@ -1,17 +1,16 @@
 from pico2d import *
 import random
 
-class Dog:
+class Cat:
     def __init__(self):
-        self.x, self.y = 600, 500
+        self.x, self.y = 400, 500
         self.frame = 0
         self.dir = 0
-        self.state = "sleep"
-        self.image = load_image('dog.png')
-        self.last_update_time = 0  # 애니메이션 업데이트 시간
-        self.frame_interval = 0.2  # 애니메이션 프레임 갱신 간격
+        self.state = "idle"
+        self.image = load_image('cat.png')
+        self.last_update_time = 0
+        self.frame_interval = 0.2
         self.sleep_frame_interval = 0.5
-        self.run_frame_interval = 0.1
         self.last_direction_change_time = 0  # 방향 변경 시간
         self.direction_change_interval = 1  # 방향 변경 간격 (초)
         self.state_change_interval = 3  # 상태 변경 간격 (초)
@@ -22,8 +21,6 @@ class Dog:
 
         if self.state == "sleep":
             frame_interval = self.sleep_frame_interval
-        elif self.state == "run":
-            frame_interval = self.run_frame_interval
         else:
             frame_interval = self.frame_interval
 
@@ -31,12 +28,10 @@ class Dog:
             self.last_update_time = current_time
             if self.state == "sleep":
                 self.frame = (self.frame + 1) % 2
-            elif self.state == "run":
-                self.frame = (self.frame + 1) % 3
             else:
                 self.frame = (self.frame + 1) % 4
 
-            #print(f"Current dog state: {self.state}")
+            print(f"Current cat state: {self.state}")
 
         # 상태 변경
         if current_time - self.last_state_change_time >= self.state_change_interval:
@@ -57,15 +52,12 @@ class Dog:
         elif self.state == "walk_left":
             self.dir = 5
             self.move()
-        elif self.state == "sit":
+        elif self.state == "lick":
             self.dir = 3
-        elif self.state == "pant":
+        elif self.state == "lie":
             self.dir = 2
         elif self.state == "sleep":
             self.dir = 1
-        elif self.state == "run":
-            self.dir = 0
-            self.move()
 
     def move(self):
         if self.dir == 8:   # down
@@ -96,13 +88,9 @@ class Dog:
         elif self.dir == 1:
             self.x = self.x
             self.y = self.y
-        elif self.dir == 0:
-            self.x += 2
-            if self.x > 1100:
-                self.x = 1100
 
     def randomize_state(self):
-        states = ["idle", "walk_down", "walk_right", "walk_up", "walk_left", "sit", "pant", "sleep", "run"]
+        states = ["idle", "walk_down", "walk_right", "walk_up", "walk_left", "lick", "lie", "sleep"]
         self.state = random.choice(states)
 
     def get_bb(self):
@@ -117,21 +105,14 @@ class Dog:
             self.image.clip_draw(self.frame * 32, self.dir * 32, 32, 32, self.x, self.y)
         elif self.state == "walk_left":
             self.image.clip_draw(self.frame * 32, self.dir * 32, 32, 32, self.x, self.y)
-        elif self.state == "sit":
+        elif self.state == "lick":
             self.image.clip_draw(self.frame * 32, self.dir * 32, 32, 32, self.x, self.y)
-        elif self.state == "pant":
+        elif self.state == "lie":
             self.image.clip_draw(self.frame * 32, self.dir * 32, 32, 32, self.x, self.y)
         elif self.state == "sleep":
             if self.frame == 0:
                 self.image.clip_draw(self.frame * 32, self.dir * 32, 32, 32, self.x, self.y)
             elif self.frame == 1:
-                self.image.clip_draw(self.frame * 32, self.dir * 32, 32, 32, self.x, self.y)
-        elif self.state == "run":
-            if self.frame == 0:
-                self.image.clip_draw(self.frame * 32, self.dir * 32, 32, 32, self.x, self.y)
-            elif self.frame == 1:
-                self.image.clip_draw(self.frame * 32, self.dir * 32, 32, 32, self.x, self.y)
-            elif self.frame == 2:
                 self.image.clip_draw(self.frame * 32, self.dir * 32, 32, 32, self.x, self.y)
         elif self.state == "idle":
             self.image.clip_draw(self.frame * 32, self.dir * 32, 32, 32, self.x, self.y)
