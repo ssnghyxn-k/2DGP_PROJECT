@@ -123,6 +123,9 @@ class Boy:
         self.overall = 50    # OVR 50  --> increase 50: level += 1
         self.level = 1       # LEVEL   --> base
         self.money = 0       # Money   --> buy food for pets
+        self.beef_count = 0  # meat count
+        self.hay_count = 0   # hay count
+        self.heart = 0
 
         self.font = load_font('ENCR10B.TTF', 20)
         self.image = load_image('animation_sheet.png')
@@ -152,6 +155,8 @@ class Boy:
         self.font.draw(10, 680, f'Level:{self.level:02d}', (255, 255, 255))
         self.font.draw(self.x - 10, self.y + 50, f'{self.overall:02d}', (255, 255, 0))
         self.font.draw(1000, 650, f'Money:{self.money:02d}$', (0, 255, 0))
+        self.font.draw(1000, 50, f'Heart:{self.money:01d}', (255, 0, 255))
+
         draw_rectangle(*self.get_bb())
 
 
@@ -180,8 +185,9 @@ class Boy:
                 self.level -= 1
                 self.condition = 50
 
-        elif group == 'boy:trainer':
-            pass
+        elif group == 'boy:trainer' and self.condition > 50:
+            self.condition -= 5
+            self.heart += 1
 
         elif group == 'boy:player_1':
             pass
@@ -195,17 +201,33 @@ class Boy:
         elif group == 'boy:manager':
             pass
 
-        elif group == 'boy:dog':
-            pass
+        elif group == 'boy:dog' and self.beef_count > 0:
+            self.beef_count -= 1
+            self.heart += 1
+            if self.heart == 10:
+                self.level += 1
+                self.heart = 0
 
-        elif group == 'boy:cat':
-            pass
+        elif group == 'boy:cat' and self.beef_count > 0:
+            self.beef_count -= 1
+            self.heart += 1
+            if self.heart == 10:
+                self.level += 1
+                self.heart = 0
 
-        elif group == 'boy:pig':
-            pass
+        elif group == 'boy:pig' and self.hay_count > 0:
+            self.hay_count -= 1
+            self.heart += 1
+            if self.heart == 10:
+                self.level += 1
+                self.heart = 0
 
-        elif group == 'boy:sheep':
-            pass
+        elif group == 'boy:sheep'and self.hay_count > 0:
+            self.hay_count -= 1
+            self.heart += 1
+            if self.heart == 10:
+                self.level += 1
+                self.heart = 0
 
         elif group == 'boy:meat':
             pass
@@ -215,6 +237,8 @@ class Boy:
 
         elif group == 'boy:beef' and self.money > 5:
             self.money -= 5
+            self.beef_count += 1
 
         elif group == 'boy:dry_grass' and self.money > 5:
             self.money -= 5
+            self.hay_count += 1

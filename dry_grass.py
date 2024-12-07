@@ -1,6 +1,7 @@
 from pico2d import *
 
 import game_world
+import play_mode
 import random
 
 
@@ -20,5 +21,5 @@ class Dry_grass:
         return self.x - 25, self.y - 25, self.x + 25, self.y + 25
 
     def handle_collision(self, group, other):
-        if group == 'boy:dry_grass':
+        if group == 'boy:dry_grass' and play_mode.boy.money > 5:
             game_world.remove_object(self)
