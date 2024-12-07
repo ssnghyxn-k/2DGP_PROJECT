@@ -9,7 +9,7 @@ from state_machine import right_down
 from state_machine import right_up
 from state_machine import left_down
 from state_machine import StateMachine
-from state_machine import up_up, up_down, down_up, down_down
+from state_machine import up_up, up_down, down_up, down_down, space_down
 
 class Idle:
     @staticmethod
@@ -162,7 +162,7 @@ class Boy:
         draw_rectangle(x, y, x + box_width, y + box_height)  # 대화창 배경
         self.font.draw(x + 20, y + box_height - 20, text, (255, 255, 255))  # 대화 내용
 
-    def handle_collision(self, group, other):
+    def handle_collision(self, group, other, event=None):
         current_time = time.time()
 
         if group == 'boy:small_ball':
@@ -207,12 +207,14 @@ class Boy:
         elif group == 'boy:sheep':
             pass
 
-        elif group == 'boy:box_1':
-            self.x = self.x
-            self.y = self.y
-
         elif group == 'boy:meat':
             pass
 
         elif group == 'boy:hay':
             pass
+
+        elif group == 'boy:beef' and self.money > 5:
+            self.money -= 5
+
+        elif group == 'boy:dry_grass' and self.money > 5:
+            self.money -= 5

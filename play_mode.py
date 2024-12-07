@@ -26,6 +26,8 @@ from pig import Pig
 from sheep import Sheep
 from meat import Meat
 from hay import Hay
+from beef import Beef
+from dry_grass import Dry_grass
 
 def handle_events():
     events = get_events()
@@ -148,8 +150,18 @@ def update_scene():
             game_world.add_object(map_2, 0)
             meat = Meat()
             game_world.add_object(meat, 0)
+            game_world.add_collision_pair('boy:meat', boy, meat)
             hay = Hay()
             game_world.add_object(hay, 1)
+            game_world.add_collision_pair('boy:hay', boy, hay)
+            beef = [Beef() for i in range(5)]
+            for beefs in beef:
+                game_world.add_object(beefs, 1)
+                game_world.add_collision_pair('boy:beef', boy, beefs)
+            dry_grass = [Dry_grass() for i in range(5)]
+            for dry_grasses in dry_grass:
+                game_world.add_object(dry_grasses, 1)
+                game_world.add_collision_pair('boy:dry_grass', boy, dry_grasses)
             boy.x = 550
             boy.y = 10
 
