@@ -7,13 +7,13 @@ def randomize_state():
     return random.choice(states)
 
 
-class Pig:
+class Sheep:
     def __init__(self):
         self.x, self.y = random.randint(100,1100), random.randint(100,600)
         self.frame = 0
         self.dir = 3
         self.state = randomize_state()
-        self.image = load_image('pig.png')
+        self.image = load_image('sheep.png')
         self.last_update_time = 0
         self.frame_interval = 0.2
         self.last_direction_change_time = 0  # 방향 변경 시간
@@ -29,7 +29,7 @@ class Pig:
             self.last_update_time = current_time
             self.frame = (self.frame + 1) % 4
 
-            print(f"Current pig state: {self.state}")
+            print(f"Current sheep state: {self.state}")
 
         # 상태 변경
         if current_time - self.last_state_change_time >= self.state_change_interval:

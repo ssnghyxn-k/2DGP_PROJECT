@@ -23,6 +23,7 @@ from post import Post
 from dog import Dog
 from cat import Cat
 from pig import Pig
+from sheep import Sheep
 
 def handle_events():
     events = get_events()
@@ -183,15 +184,19 @@ def update_scene():
             map_5 = MAP_5()
             dog = Dog()
             cat = Cat()
-            pig = [Pig() for i in range(5)]
             game_world.add_object(map_5, 0)
             game_world.add_object(dog, 1)
             game_world.add_object(cat, 1)
             game_world.add_collision_pair('boy:dog', boy, dog)
             game_world.add_collision_pair('boy:cat', boy, cat)
+            pig = [Pig() for i in range(5)]
             for pigs in pig:
                 game_world.add_object(pigs, 1)
                 game_world.add_collision_pair('boy:pig', boy, pigs)
+            sheep = [Sheep() for i in range(5)]
+            for sheeps in sheep:
+                game_world.add_object(sheeps, 1)
+                game_world.add_collision_pair('boy:sheep', boy, sheeps)
 
             boy.x = 600
             boy.y = 350
