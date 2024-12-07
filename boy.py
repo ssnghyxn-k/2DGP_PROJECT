@@ -213,3 +213,6 @@ class Boy:
 
         elif group == 'boy:meat':
             pass
+
+        elif group == 'boy:hay':
+            pass

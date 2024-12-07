@@ -25,6 +25,7 @@ from cat import Cat
 from pig import Pig
 from sheep import Sheep
 from meat import Meat
+from hay import Hay
 
 def handle_events():
     events = get_events()
@@ -147,6 +148,8 @@ def update_scene():
             game_world.add_object(map_2, 0)
             meat = Meat()
             game_world.add_object(meat, 0)
+            hay = Hay()
+            game_world.add_object(hay, 1)
             boy.x = 550
             boy.y = 10
 
