@@ -183,14 +183,15 @@ def update_scene():
             map_5 = MAP_5()
             dog = Dog()
             cat = Cat()
-            pig = Pig()
+            pig = [Pig() for i in range(5)]
             game_world.add_object(map_5, 0)
             game_world.add_object(dog, 1)
             game_world.add_object(cat, 1)
-            game_world.add_object(pig, 1)
             game_world.add_collision_pair('boy:dog', boy, dog)
             game_world.add_collision_pair('boy:cat', boy, cat)
-            game_world.add_collision_pair('boy:pig', boy, pig)
+            for pigs in pig:
+                game_world.add_object(pigs, 1)
+                game_world.add_collision_pair('boy:pig', boy, pigs)
 
             boy.x = 600
             boy.y = 350

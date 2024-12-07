@@ -2,12 +2,18 @@ from pico2d import *
 import random
 import math
 
+
+def randomize_state():
+    states = ["walk_down", "walk_right", "walk_up", "walk_left"]
+    return random.choice(states)
+
+
 class Pig:
     def __init__(self):
-        self.x, self.y = 800, 200
+        self.x, self.y = random.randint(100,1100), random.randint(100,600)
         self.frame = 0
         self.dir = 3
-        self.state = "walk_right"
+        self.state = randomize_state()
         self.image = load_image('pig.png')
         self.last_update_time = 0
         self.frame_interval = 0.2
@@ -22,17 +28,14 @@ class Pig:
         frame_interval = self.frame_interval
         if current_time - self.last_update_time >= frame_interval:
             self.last_update_time = current_time
-            if self.state == "sleep":
-                self.frame = (self.frame + 1) % 2
-            else:
-                self.frame = (self.frame + 1) % 4
+            self.frame = (self.frame + 1) % 4
 
             print(f"Current pig state: {self.state}")
 
         # 상태 변경
         if current_time - self.last_state_change_time >= self.state_change_interval:
             self.last_state_change_time = current_time
-            self.randomize_state()
+            randomize_state()
 
         if self.state == "walk_down":
             self.dir = 4
@@ -65,10 +68,6 @@ class Pig:
             self.x -= 2
             if self.x < 100:
                 self.x = 100
-
-    def randomize_state(self):
-        states = ["walk_down", "walk_right", "walk_up", "walk_left"]
-        self.state = random.choice(states)
 
     def get_bb(self):
         return self.x - 16, self.y - 16, self.x + 16, self.y + 16
