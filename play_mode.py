@@ -68,9 +68,22 @@ def update_scene():
             current_scene = 'map_5'   # bottom -> field
 
     elif current_scene == 'map_2': # market
-         if boy.y < 0:
-            current_scene = 'TR_GROUND'
-         elif boy.x < 0:
+         if 450 < boy.x < 740:
+             if boy.y < 0:
+                current_scene = 'TR_GROUND'
+             elif boy.y > 150:
+                 if boy.x < 460:
+                     boy.x = 460
+                     boy.y = boy.y
+                 elif boy.x > 730:
+                     boy.x = 730
+                     boy.y = boy.y
+         else:
+             if boy.y < 0:
+                boy.y = 0
+             elif boy.y > 150:
+                boy.y = 150
+         if boy.x < 0:
              boy.x = 0
              boy.dir_x = 0
          elif boy.y > 700:
@@ -106,7 +119,7 @@ def update_scene():
             boy.x =1200
             boy.dir_x = 0
 
-    elif current_scene == 'map_5':
+    elif current_scene == 'map_5': # field
         if boy.y > 700:
             current_scene = 'TR_GROUND'
         elif boy.y < 0:

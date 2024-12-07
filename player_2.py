@@ -21,8 +21,8 @@ class Player_2:
         dx, dy = play_mode.boy.x - self.x, play_mode.boy.y - self.y
         distance = (dx ** 2 + dy ** 2) ** 0.5
         if distance > 0:
-            self.x += dx / distance * 3
-            self.y += dy / distance * 3
+            self.x += dx / distance * 2.5
+            self.y += dy / distance * 2.5
 
         self.frame = (self.frame + 1) % 4
 
