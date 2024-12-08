@@ -45,6 +45,11 @@ def init():
     global boy
     global tu_ground
     global current_scene, previous_scene
+    global bgm
+
+    bgm = load_music('play_mode.mp3')
+    bgm.set_volume(64)
+    bgm.repeat_play()
 
     current_scene = 'TR_GROUND'
     previous_scene = current_scene

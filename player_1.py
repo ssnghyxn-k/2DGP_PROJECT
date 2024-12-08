@@ -1,6 +1,7 @@
 from pico2d import *
 import play_mode
 
+
 class Player_1:
     def __init__(self):
         self.x, self.y = 600, 500

@@ -1,6 +1,7 @@
 from pico2d import *
 import game_framework
 import play_mode
+import title_mode
 import game_world
 
 class m_Ball:
@@ -35,7 +36,7 @@ class m_Ball:
 
     def handle_collision(self, group, other):
         if group in ['m_ball:player_1', 'm_ball:player_2', 'm_ball:player_3']:
-            game_framework.quit()
+            game_framework.change_mode(title_mode)
         elif group == 'm_ball:post':
             m_Ball.goal_sound.play()
             play_mode.boy.money += 50
