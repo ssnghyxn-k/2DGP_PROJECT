@@ -3,12 +3,16 @@ import game_world
 import random
 
 class Burger:
+    burger_sound = None
+
     def __init__(self):
         self.x, self.y = random.randint(100, 1100), random.randint(10, 590)
         # self.frame = random.randint(0, 7)
         # self.speed = random.uniform(3, 5)
         self.image = load_image('burger.png')
         self.removed = False
+        Burger.burger_sound = load_wav('burger.wav')
+        Burger.burger_sound.set_volume(30)
 
     def update(self):
         # self.y -= self.speed
@@ -26,6 +30,7 @@ class Burger:
         if self.removed:
             return
         if group == 'boy:burger':
+            Burger.burger_sound.play()
             self.removed = True
             game_world.remove_object(self)
 
