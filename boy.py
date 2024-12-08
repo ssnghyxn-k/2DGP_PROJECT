@@ -204,28 +204,28 @@ class Boy:
         elif group == 'boy:dog' and self.beef_count > 0:
             self.beef_count -= 1
             self.heart += 1
-            if self.heart == 10:
+            if self.heart >= 10:
                 self.level += 1
                 self.heart = 0
 
         elif group == 'boy:cat' and self.beef_count > 0:
             self.beef_count -= 1
             self.heart += 1
-            if self.heart == 10:
+            if self.heart >= 10:
                 self.level += 1
                 self.heart = 0
 
         elif group == 'boy:pig' and self.hay_count > 0:
             self.hay_count -= 1
             self.heart += 1
-            if self.heart == 10:
+            if self.heart >= 10:
                 self.level += 1
                 self.heart = 0
 
         elif group == 'boy:sheep'and self.hay_count > 0:
             self.hay_count -= 1
             self.heart += 1
-            if self.heart == 10:
+            if self.heart >= 10:
                 self.level += 1
                 self.heart = 0
 
