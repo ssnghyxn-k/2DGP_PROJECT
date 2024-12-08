@@ -6,9 +6,13 @@ import random
 
 
 class Beef:
+    beef_sound = None
+
     def __init__(self):
         self.x, self.y = 530, random.randint(200, 600)
         self.image = load_image('beef.png')
+        Beef.beef_sound = load_wav('goal.wav')
+        Beef.beef_sound.set_volume(30)
 
     def update(self):
         pass
@@ -22,4 +26,5 @@ class Beef:
 
     def handle_collision(self, group, other):
         if group == 'boy:beef' and play_mode.boy.money > 5:
+            Beef.beef_sound.play()
             game_world.remove_object(self)
