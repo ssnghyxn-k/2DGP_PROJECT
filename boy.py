@@ -155,7 +155,7 @@ class Boy:
         self.font.draw(10, 680, f'Level:{self.level:02d}', (255, 255, 255))
         self.font.draw(self.x - 10, self.y + 50, f'{self.overall:02d}', (255, 255, 0))
         self.font.draw(1000, 650, f'Money:{self.money:02d}$', (0, 255, 0))
-        self.font.draw(1000, 50, f'Heart:{self.heart:01d}', (255, 0, 255))
+        self.font.draw(1000, 30, f'Heart:{self.heart:01d}', (255, 0, 255))
 
         #draw_rectangle(*self.get_bb())
 
@@ -185,8 +185,9 @@ class Boy:
                 self.level -= 1
                 self.condition = 50
 
-        elif group == 'boy:trainer' and self.condition > 50:
+        elif group == 'boy:trainer' and self.condition > 50 and self.money >= 5:
             self.condition -= 5
+            self.money -= 5
             self.heart += 1
 
         elif group == 'boy:player_1':
