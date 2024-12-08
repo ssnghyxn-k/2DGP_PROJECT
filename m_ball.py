@@ -9,7 +9,7 @@ class m_Ball:
     def __init__(self):
         self.x, self.y = play_mode.boy.x, play_mode.boy.y
         self.image = load_image('ball21x21.png')
-        m_Ball.goal_sound = load_wav('goal.wav')
+        m_Ball.goal_sound = load_wav('score.wav')
         m_Ball.goal_sound.set_volume(30)
 
     def update(self):
