@@ -7,13 +7,13 @@ def randomize_state():
     return random.choice(states)
 
 
-class Pig:
+class Ostrich:
     def __init__(self):
         self.x, self.y = random.randint(100,1100), random.randint(100,600)
         self.frame = 0
         self.dir = 3
         self.state = randomize_state()
-        self.image = load_image('pig.png')
+        self.image = load_image('ostrich.png')
         self.last_update_time = 0
         self.frame_interval = 0.2
         self.last_direction_change_time = 0  # 방향 변경 시간

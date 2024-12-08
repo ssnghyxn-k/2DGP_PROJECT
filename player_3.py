@@ -4,7 +4,7 @@ import game_world
 
 class Player_3:
     def __init__(self):
-        self.x, self.y = 600, 300
+        self.x, self.y = 800, 300
         self.frame = 0
         self.dir = 2
         self.image = load_image('player_3.png')
@@ -33,7 +33,7 @@ class Player_3:
     def draw(self):
         # clip_draw(x, y, w, h, cx, cy)
         self.image.clip_draw(self.frame * 64, self.dir * 64, 64, 64, self.x, self.y)
-        draw_rectangle(*self.get_bb())
+        #draw_rectangle(*self.get_bb())
 
 
     def handle_collision(self, group, other):

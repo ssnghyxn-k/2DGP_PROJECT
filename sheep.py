@@ -80,7 +80,7 @@ class Sheep:
             self.image.clip_draw(self.frame * 64, self.dir * 64, 64, 64, self.x, self.y)
         elif self.state == "walk_left":
             self.image.clip_composite_draw(self.frame * 64, 3 * 64, 64, 64, 0.0, 'h', self.x, self.y, 64, 64)
-        draw_rectangle(*self.get_bb())
+        #draw_rectangle(*self.get_bb())
 
     def handle_collision(self, group, other):
         pass

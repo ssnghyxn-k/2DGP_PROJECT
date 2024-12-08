@@ -32,7 +32,7 @@ class Player_1:
     def draw(self):
         # clip_draw(x, y, w, h, cx, cy)
         self.image.clip_draw(self.frame * 64, self.dir * 64, 64, 64, self.x, self.y)
-        draw_rectangle(*self.get_bb())
+        #draw_rectangle(*self.get_bb())
 
     def handle_collision(self, group, other):
         if group == 'm_ball:player_1':

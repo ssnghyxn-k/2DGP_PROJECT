@@ -2,8 +2,9 @@ import random
 
 from pico2d import *
 import game_framework
-
 import game_world
+import title_mode
+
 from boy import Boy
 from tr_ground import TR_GROUND
 from map_2 import MAP_2
@@ -28,6 +29,7 @@ from meat import Meat
 from hay import Hay
 from beef import Beef
 from dry_grass import Dry_grass
+from ostrich import Ostrich
 
 def handle_events():
     events = get_events()
@@ -35,7 +37,7 @@ def handle_events():
         if event.type == SDL_QUIT:
             game_framework.quit()
         elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
-            game_framework.quit()
+            game_framework.change_mode(title_mode)
         else:
             boy.handle_event(event)
 
@@ -251,6 +253,10 @@ def update_scene():
             for sheeps in sheep:
                 game_world.add_object(sheeps, 1)
                 game_world.add_collision_pair('boy:sheep', boy, sheeps)
+            ostrich = [Ostrich() for i in range(5)]
+            for os in ostrich:
+                game_world.add_object(os, 1)
+                game_world.add_collision_pair('boy:ostrich', boy, os)
 
             boy.x = 600
             boy.y = 350

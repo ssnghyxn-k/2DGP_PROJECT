@@ -136,7 +136,7 @@ class Dog:
         elif self.state == "idle":
             self.image.clip_draw(self.frame * 32, self.dir * 32, 32, 32, self.x, self.y)
 
-        draw_rectangle(*self.get_bb())
+        #draw_rectangle(*self.get_bb())
 
     def handle_collision(self, group, other):
         pass

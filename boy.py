@@ -30,7 +30,7 @@ class Idle:
 
     @staticmethod
     def do(boy):
-        boy.frame = (boy.frame + 1) % 4
+        boy.frame = 0
 
     @staticmethod
     def draw(boy):
@@ -87,8 +87,8 @@ class Run:
 
     @staticmethod
     def do(boy):
-        boy.x += boy.dir_x * 8
-        boy.y += boy.dir_y * 8
+        boy.x += boy.dir_x * 5
+        boy.y += boy.dir_y * 5
         boy.frame = (boy.frame + 1) % 4
 
     @staticmethod
@@ -157,7 +157,7 @@ class Boy:
         self.font.draw(1000, 650, f'Money:{self.money:02d}$', (0, 255, 0))
         self.font.draw(1000, 50, f'Heart:{self.heart:01d}', (255, 0, 255))
 
-        draw_rectangle(*self.get_bb())
+        #draw_rectangle(*self.get_bb())
 
 
     def get_bb(self):
@@ -222,7 +222,14 @@ class Boy:
                 self.level += 1
                 self.heart = 0
 
-        elif group == 'boy:sheep'and self.hay_count > 0:
+        elif group == 'boy:sheep' and self.hay_count > 0:
+            self.hay_count -= 1
+            self.heart += 1
+            if self.heart >= 10:
+                self.level += 1
+                self.heart = 0
+
+        elif group == 'boy:ostrich' and self.hay_count > 0:
             self.hay_count -= 1
             self.heart += 1
             if self.heart >= 10:
