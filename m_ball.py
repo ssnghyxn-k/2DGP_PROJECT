@@ -4,9 +4,13 @@ import play_mode
 import game_world
 
 class m_Ball:
+    goal_sound = None
+
     def __init__(self):
         self.x, self.y = play_mode.boy.x, play_mode.boy.y
         self.image = load_image('ball21x21.png')
+        m_Ball.goal_sound = load_wav('goal.wav')
+        m_Ball.goal_sound.set_volume(30)
 
     def update(self):
         if play_mode.boy.dir_x > 0:        # right
@@ -33,8 +37,10 @@ class m_Ball:
         if group in ['m_ball:player_1', 'm_ball:player_2', 'm_ball:player_3']:
             game_framework.quit()
         elif group == 'm_ball:post':
+            m_Ball.goal_sound.play()
             play_mode.boy.money += 50
             game_world.remove_object(self)
+
 
 
 
